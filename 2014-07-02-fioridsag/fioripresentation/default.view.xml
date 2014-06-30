@@ -2,6 +2,7 @@
         xmlns:v="sap.viz.ui5"
         xmlns:t="sap.viz.ui5.types"
 		xmlns:l="sap.ui.layout" 
+		xmlns:c="sap.ui.commons"
 		xmlns:mvc="sap.ui.core.mvc" 
 		xmlns="sap.m"
 		controllerName="fioripresentation.default" xmlns:html="http://www.w3.org/1999/xhtml">
@@ -9,12 +10,42 @@
 		<content>
 		  <Carousel>
 		    <pages>
-		
+		      <!-- 		
+		      <l:VerticalLayout>
+		      	<ObjectHeader title="Einsatz von SAPUI5/Fiori aus Kundenprojektsicht" />
+		      	<l:HorizontalLayout>
+		      		<Image src="resource/img/OsramCorpLogo-RGBpos_2013.png" />
+		        	<Image src="resource/img/Logo_der_Deutschsprachigen_SAP.png" />
+		        </l:HorizontalLayout>
+		      </l:VerticalLayout>
+		      -->
+		      <l:VerticalLayout>
+		      	<ObjectHeader title="SAPUI5 vs. Fiori" />
+		        <l:HorizontalLayout>
+		        	<l:content>
+		        		<l:VerticalLayout>
+		        		<Text text="SAPUI5" />
+		      			<Text text="SAPUI5 ist ein(e) Clientseitige(s) HTML5 und JavaScript-basierte 
+		      			Rendering-Bibliothek und Programmiermodell, das für die Nutzung von 
+		      			SAP-Daten optimiert ist. Es verbindet neue Qualitäten wie Offenheit und Flexibilität 
+		      			mit bekannten Stärken wie SAP Enterprise Bereitschaft und Produkt Standard-Support." />
+		        		<Text text="Fiori" />
+		      			<Text text="SAP Fiori – meaning ‘flowers’ in Italian – represents SAP’s intent to deliver 
+		      			consumer-grade user experience to our most broadly and frequently used business transactions. 
+		      			Delivered with a fresh and modern user interface, SAP Fiori apps adhere to a consistent and 
+		      			responsive design that allows users to seamlessly experience the apps across various  
+		      			interaction channels – desktop, tablet, and mobile. The apps follow a simple and intuitive 
+		      			interaction pattern that enables users to accomplish their tasks quickly and 
+		      			effortlessly." />
+		      			</l:VerticalLayout>
+		      		</l:content>
+		        </l:HorizontalLayout>
+		      </l:VerticalLayout>
+
 		      <l:VerticalLayout>
 		      	<ObjectHeader title="Fiori Architecture" />
 		        <Image src="resource/img/FioriArchitecture.png" />
 		      </l:VerticalLayout>
-		      
 		      <l:VerticalLayout>
 		      	<ObjectHeader title="SAP Fiori Apps" />
 			    <v:Column
