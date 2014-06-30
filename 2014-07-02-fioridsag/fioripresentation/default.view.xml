@@ -1,0 +1,50 @@
+<core:View xmlns:core="sap.ui.core"
+        xmlns:v="sap.viz.ui5"
+        xmlns:t="sap.viz.ui5.types"
+		xmlns:l="sap.ui.layout" 
+		xmlns:mvc="sap.ui.core.mvc" 
+		xmlns="sap.m"
+		controllerName="fioripresentation.default" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Fiori Overview">
+		<content>
+		  <Carousel>
+		    <pages>
+		
+		      <l:VerticalLayout>
+		      	<ObjectHeader title="Fiori Architecture" />
+		        <Image src="resource/img/FioriArchitecture.png" />
+		      </l:VerticalLayout>
+		      
+		      <l:VerticalLayout>
+		      	<ObjectHeader title="SAP Fiori Apps" />
+			    <v:Column
+	              id="idChart"
+	              width="500px"
+	              height="500px">
+	              <v:title>
+	                <t:Title
+	                  visible="true"
+	                  text="by {
+	                    path : '/category',
+	                    formatter : 'local.Formatter.removeUnderscore'
+	                  }" />
+	              </v:title>
+	            </v:Column>	        
+			    <Link
+			        text="SAP Fiori Apps"
+			        target="_blank"
+			        href="https://code.bluefinsolutions.com/~dadams/FioriWebinar/AppAnalysis.html" />		        
+		      </l:VerticalLayout>
+	
+		      <l:VerticalLayout>
+		      	<ObjectHeader title="Reference for transactional apps" />
+			    <Link
+			        text="Add-on quick reference for transactional apps"
+			        target="_blank"
+			        href="http://scn.sap.com/docs/DOC-53262" />		        
+		      </l:VerticalLayout>
+		    </pages>
+		  </Carousel>
+		</content>
+	</Page>
+</core:View>
