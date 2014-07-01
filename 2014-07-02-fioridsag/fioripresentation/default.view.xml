@@ -10,7 +10,6 @@
 		<content>
 		  <Carousel>
 		    <pages>
-		      <!-- 		
 		      <l:VerticalLayout>
 		      	<ObjectHeader title="Einsatz von SAPUI5/Fiori aus Kundenprojektsicht" />
 		      	<l:HorizontalLayout>
@@ -18,35 +17,46 @@
 		        	<Image src="resource/img/Logo_der_Deutschsprachigen_SAP.png" />
 		        </l:HorizontalLayout>
 		      </l:VerticalLayout>
-		      -->
+		      
 		      <l:VerticalLayout>
 		      	<ObjectHeader title="SAPUI5 vs. Fiori" />
-		        <l:HorizontalLayout>
-		        	<l:content>
-		        		<l:VerticalLayout>
-		        		<Text text="SAPUI5" />
+				<l:HorizontalLayout allowWrapping="true">
+					<l:VerticalLayout  allowWrapping="true" width="45%" class="marginVerticalContent">
+		        		<core:HTML content="&lt;h2&gt;SAPUI5&lt;/h2&gt;" />
 		      			<Text text="SAPUI5 ist ein(e) Clientseitige(s) HTML5 und JavaScript-basierte 
 		      			Rendering-Bibliothek und Programmiermodell, das für die Nutzung von 
 		      			SAP-Daten optimiert ist. Es verbindet neue Qualitäten wie Offenheit und Flexibilität 
-		      			mit bekannten Stärken wie SAP Enterprise Bereitschaft und Produkt Standard-Support." />
-		        		<Text text="Fiori" />
-		      			<Text text="SAP Fiori – meaning ‘flowers’ in Italian – represents SAP’s intent to deliver 
-		      			consumer-grade user experience to our most broadly and frequently used business transactions. 
-		      			Delivered with a fresh and modern user interface, SAP Fiori apps adhere to a consistent and 
-		      			responsive design that allows users to seamlessly experience the apps across various  
-		      			interaction channels – desktop, tablet, and mobile. The apps follow a simple and intuitive 
-		      			interaction pattern that enables users to accomplish their tasks quickly and 
-		      			effortlessly." />
-		      			</l:VerticalLayout>
-		      		</l:content>
-		        </l:HorizontalLayout>
+		      			mit bekannten Stärken wie der Bereitschaft zum Einsatz in Unternehmen
+		      			und dem Produkt durch SAP." />
+					    <Link
+					        text="SAPUI5 SDK"
+					        target="_blank"
+					        href="https://sapui5.hana.ondemand.com/sdk/" 
+							class="marginLink" />		        
+					</l:VerticalLayout>
+					<l:VerticalLayout  allowWrapping="true" width="45%" class="marginVerticalContent">
+		        		<core:HTML content="&lt;h2&gt;Fiori&lt;/h2&gt;" />
+		      			<Text text="SAP Fiori – kommt aus dem italienischen und bedeutet ‘Blume’. 
+						Fiori ist SAP’s Ansatz die am häufigsten genutzen Transaktionen mit der Benutzererbarkeit
+						von Anwendungen für Verbraucher auszustatten. Geliefert wird eine frische und modernen 
+						Benutzerschnittstelle mit einem über verschiedene Apps einheitlichen und ansprechende Design.
+						Diese können über wie Desktop-, Tablet- und Mobilgeräte genutzt werden. 
+						Die Apps folgen einem einfachen und intuitiven Interaktionsmuster mit dem die Benutzern 
+						ihre Aufgaben schnell und mühelos erledigen." />
+					    <Link
+					        text="SAP Fiori Design Guidelines"
+					        target="_blank"
+					        href="http://experience.sap.com/fiori-guidelines/"
+							class="marginLink" />		        
+					</l:VerticalLayout>
+				</l:HorizontalLayout>
 		      </l:VerticalLayout>
 
-		      <l:VerticalLayout>
+		      <l:VerticalLayout class="marginVerticalContent">
 		      	<ObjectHeader title="Fiori Architecture" />
 		        <Image src="resource/img/FioriArchitecture.png" />
 		      </l:VerticalLayout>
-		      <l:VerticalLayout>
+		      <l:VerticalLayout class="marginVerticalContent">
 		      	<ObjectHeader title="SAP Fiori Apps" />
 			    <v:Column
 	              id="idChart"
@@ -67,7 +77,7 @@
 			        href="https://code.bluefinsolutions.com/~dadams/FioriWebinar/AppAnalysis.html" />		        
 		      </l:VerticalLayout>
 	
-		      <l:VerticalLayout>
+		      <l:VerticalLayout class="marginVerticalContent">
 		      	<ObjectHeader title="Reference for transactional apps" />
 			    <Link
 			        text="Add-on quick reference for transactional apps"
