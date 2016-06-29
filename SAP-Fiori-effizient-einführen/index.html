@@ -18,7 +18,12 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script>
         <script>
-            Reveal.initialize();
+            Reveal.initialize({
+                dependencies: [
+                    // Speaker notes
+                    { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true }
+                ]
+            });
         </script>
     </body>
 </html>
