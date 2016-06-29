@@ -70,11 +70,11 @@
 	                    formatter : 'local.Formatter.removeUnderscore'
 	                  }" />
 	              </v:title>
+                    <Link
+                        text="SAP Fiori Apps"
+                        target="_blank"
+                        href="https://code.bluefinsolutions.com/~dadams/FioriWebinar/AppAnalysis.html" />		        
 	            </v:Column>	        
-			    <Link
-			        text="SAP Fiori Apps"
-			        target="_blank"
-			        href="https://code.bluefinsolutions.com/~dadams/FioriWebinar/AppAnalysis.html" />		        
 		      </l:VerticalLayout>
 	
 		      <l:VerticalLayout class="marginVerticalContent">
