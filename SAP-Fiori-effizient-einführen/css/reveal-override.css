@@ -1,0 +1,6 @@
+body:after {
+    content: url(https://computerservice-wolf.com/images/csw-logo.svg);
+    position: fixed;
+    bottom: 2em;
+    left: 2em;
+}
