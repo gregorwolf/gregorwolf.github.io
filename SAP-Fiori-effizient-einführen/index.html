@@ -49,22 +49,15 @@
                         <h2>Entdecken</h2>
                         <p>Geschäftsprozess Experten<br />
                             <a href="https://www.sapfioritrial.com/" target="_blank">SAP Fiori, Demo Cloud Edition</a><br />
-                            <a href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/" target="_blank">SAP Fiori apps reference library</a></p>
-                        <p>SAP Architekten<br />
-                            <a href="https://eaexplorer.hana.ondemand.com/" target="_blank">SAP Enterprise Architecture Explorer</a></p>
-                        <p>SAP Entwickler<br />
-                            <a href="https://www.sapfioritrial.com/" target="_blank">SAP Fiori, Demo Cloud Edition Erweitern</a><br />
-                            <a href="https://open.sap.com/courses/fiux2" target="_blank">openSAP Kurs: Build Your Own SAP Fiori App in the Cloud</a><br />
-                            <a href="https://open.sap.com/courses/ui51" target="_blank">openSAP Kurs: Developing Web Apps with SAPUI5</a><br />
-                            <a href="http://scn.sap.com/docs/DOC-37775" target="_blank">SAP CodeJam's: SAP Gateway, SAP UI5, ABAP for SAP HANA with Fiori</a>
-                            </p>
+                            <a href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/" target="_blank">SAP Fiori apps reference library</a>
+                        </p>
                     </section>
                     <section data-background="images/SAP-Fiori-Demo-Cloud-Edition.png">
                         <h3>SAP Fiori, Demo Cloud Edition</h3>
                         <p>Geschäftsprozess Experten</p>
                         <ul>
                             <li>Apps live testen</li>
-                            <li>Auch mobil im Fiori Client nutzbar</li>
+                            <li>Auch mobil im SAP Fiori Client</li>
                         </ul>
                     </section>
                     <section data-background="images/Fiori-Apps-Library-BPX.png">
@@ -76,6 +69,13 @@
                             <li>Beschreibungen</li>
                         </ul>
                     </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Entdecken</h2>
+                        <p>SAP Architekten<br />
+                            <a href="https://eaexplorer.hana.ondemand.com/" target="_blank">SAP Enterprise Architecture Explorer</a></p>
+                    </section>
                     <section data-background="images/SAP-EA-Explorer.png">
                         <h3>SAP Enterprise Architecture Explorer</h3>
                         <p>SAP Architekten</p>
@@ -85,6 +85,17 @@
                             <li>Optionen zur Installation</li>
                             <li>Vor- und Nachteile</li>
                         </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Entdecken</h2>
+                        <p>SAP Entwickler<br />
+                            <a href="https://www.sapfioritrial.com/" target="_blank">SAP Fiori, Demo Cloud Edition Erweitern</a><br />
+                            <a href="https://open.sap.com/courses/fiux2" target="_blank">openSAP Kurs: Build Your Own SAP Fiori App in the Cloud</a><br />
+                            <a href="https://open.sap.com/courses/ui51" target="_blank">openSAP Kurs: Developing Web Apps with SAPUI5</a><br />
+                            <a href="http://scn.sap.com/docs/DOC-37775" target="_blank">SAP CodeJam: Gateway, SAPUI5, ABAP for HANA with Fiori</a>
+                            </p>
                     </section>
                     <section data-background="images/SAP-Fiori-Demo-Cloud-Extend.png">
                         <h3>SAP Fiori, Demo Cloud Edition</h3>
@@ -125,12 +136,32 @@
                     <section data-background="images/STC01.png">
                         <h3>Task Lists (STC01)</h3>
                         <p>Aktivierung</p>
-                        <ul>
-                            <li>SAP Gateway (SAP_GATEWAY_BASIC_CONFIG)</li>
-                            <li>Launchpad (SAP_FIORI_LAUNCHPAD_INIT_SETUP)</li>
-                            <li>OData Dienste (SAP_GATEWAY_ACTIVATE_ODATA_SERV)</li>
-                            <li>ICF Dienste (SAP_BASIS_ACTIVATE_ICF_NODES)</li>
-                        </ul>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Task List</th>
+                                    <th>Funktion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SAP_GATEWAY_BASIC_CONFIG</td>
+                                    <td>SAP Gateway</td>
+                                </tr>
+                                <tr>
+                                    <td>SAP_FIORI_LAUNCHPAD_INIT_SETUP</td>
+                                    <td>Launchpad</td>
+                                </tr>
+                                <tr>
+                                    <td>SAP_GATEWAY_ACTIVATE_ODATA_SERV</td>
+                                    <td nowrap>OData (Gateway) Dienste</td>
+                                </tr>
+                                <tr>
+                                    <td>SAP_BASIS_ACTIVATE_ICF_NODES</td>
+                                    <td>ICF Dienste</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </section>
                 </section>
                 <!-- Konfigurieren -->
@@ -239,6 +270,7 @@
                         </ul>
                     </section>
                 </section>
+                <!-- Ausrollen -->
                 <!-- Zusammenfassung -->
                 <section>
                     <h2>Zusammenfassung</h2>
@@ -254,18 +286,66 @@
                 <section>
                     <h2>Kontakt</h2>
                     <p style="text-align: left; margin-left:5em">
-                        Gregor Wolf<br />
+                        Gregor Wolf, 
                         <a href="https://computerservice-wolf.com/" target="_blank">Computerservice Wolf</a><br />
                         <a href="mailto:gregor@computerservice-wolf.com" target="_blank">gregor@computerservice-wolf.com</a><br />
-                        <a href="https://twitter.com/wolf_gregor" target="_blank">@wolf_gregor</a><br />
-                    <br />
-                    Präsentation: <br />
-                        <img src="images/QR-Code-Link-zu-Slides.jpg" 
-                         alt="Link zur Präsentation"
-                         height="250px"
-                         class="plain" />
+                        <a href="https://twitter.com/wolf_gregor" target="_blank">@wolf_gregor</a>
                     </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Präsentation</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>Visitenkarte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="images/QR-Code-Link-zu-Slides.jpg" 
+                                         alt="Link zur Präsentation"
+                                         height="250px"
+                                         class="plain" /></td>
+                                <td></td>
+                                <td></td>
+                                <td><img src="images/QR-Code-Visitenkarte.png" 
+                                         alt="Visitenkarte"
+                                         height="250px"
+                                         class="plain" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
+                <section>
+                    <section>
+                        <h2>Zusatzinformationen</h2>
+                    </section>
+                    <section>
+                        <h3>SAP Fiori Client</h3>
+                        <p>Funktionalitäten:</p>
+                        <ul>
+                            <li>native Funktionen (wie Kamera, Barcode-Scanner usw.)</li>
+                            <li>bessere Verwaltung des lokalen Web-Cache</li>
+                            <li>zusätzliche Sicherheit zum Schutz der Anwendung vor unautorisiertem Zugriff</li>
+                            <li>Bereitstellung des Benutzerzertifikats durch Mobile Secure und SAP Mobile Platform</li>
+                        </ul>
+                        <p>Download:</p>
+                        <p>
+                        <a href="https://www.microsoft.com/de-de/store/apps/sap-fiori-client/9wzdncrd2c40" target="_blank">Windows 10</a> |
+                        <a href="https://itunes.apple.com/de/app/sap-fiori-client/id824997258?mt=8" target="_blank">iOS</a> |
+                        <a href="https://play.google.com/store/apps/details?id=com.sap.fiori.client" target="_blank">Android</a>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>SAP Fiori Launchpad</h3>
+                        <p>Implementierungsmöglichkeiten:</p>
+                        <ul>
+                            <li>SAP NetWeaver ABAP</li>
+                            <li>SAP Portal (Java)</li>
+                            <li>SAP HANA Cloud Platform</li>
+                        </ul>                        
+                    </section>
+                </section>                
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script>
