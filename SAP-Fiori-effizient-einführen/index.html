@@ -257,7 +257,13 @@
                         Gregor Wolf<br />
                         <a href="https://computerservice-wolf.com/" target="_blank">Computerservice Wolf</a><br />
                         <a href="mailto:gregor@computerservice-wolf.com" target="_blank">gregor@computerservice-wolf.com</a><br />
-                        <a href="https://twitter.com/wolf_gregor" target="_blank">@wolf_gregor</a>
+                        <a href="https://twitter.com/wolf_gregor" target="_blank">@wolf_gregor</a><br />
+                    <br />
+                    Präsentation: <br />
+                        <img src="images/QR-Code-Link-zu-Slides.jpg" 
+                         alt="Link zur Präsentation"
+                         height="250px"
+                         class="plain" />
                     </p>
                 </section>
             </div>
@@ -269,6 +275,13 @@
                 slideNumber: true,
                 progress: true,
 				history: true
+                // Speaker notes
+                dependencies: [
+                    { 
+                        src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', 
+                        async: true 
+                    }
+                ]
             });
         </script>
 
