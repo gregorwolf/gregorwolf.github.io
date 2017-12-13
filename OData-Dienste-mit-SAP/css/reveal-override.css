@@ -1,0 +1,23 @@
+body:after {
+    content: url(../images/KENTIVO-Logo.png);
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    text-transform: none;
+    background-color: rgba(255,255,255,0.8);
+}
+
+p, ul, li, section, th, td {
+    background-color: rgba(255,255,255,0.8);
+}
