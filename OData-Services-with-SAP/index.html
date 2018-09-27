@@ -1,0 +1,234 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/reveal.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/white.css" />
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/pdf.css" />
+        -->
+        <link rel="stylesheet" href="../OData-Dienste-mit-SAP/css/reveal-override.css" />
+        <title>OData Services with SAP</title>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <p>Gregor Wolf</p>
+                    <h1>OData Services<br />
+                        with SAP</h1>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><!--
+                <a href="http://www.profes.de/" 
+                                       target="_blank"><img src="../SAP-Fiori-effizient-einf%C3%BChren/images/profes-logo.png" 
+                                         alt="Profes"
+                                         height="200px"
+                                         class="plain" /></a> -->
+                </td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="http://www.dsag.de/" 
+                                       target="_blank"><img 
+                                         src="https://www.dsag.de/fileadmin/media/organisationshilfen/Logo_der_Deutschsprachigen_SAP.jpg" 
+                                         alt="DSAG Logo"
+                                         height="200px"
+                                         class="plain" /></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <section>
+                        <h2>REST</h2>
+                        <p>Stands for Representational State Transfer</p> 
+                        <ul>
+                            <li>Client-Server</li>
+                            <li>Statless</li>
+                            <li>Caching</li>
+                            <li>Multi-Level systemes</li>
+                            <li>Uniform interface</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Uniform interface</h2>
+                        <ul>
+                            <li>Resource identification in requests</li>
+                            <li>Resource manipulation through representations</li>
+                            <li>Self-descriptive messages</li>
+                            <li>Hypermedia as the engine of application state (HATEOAS)</li>
+                        </ul>
+                        <aside class="notes">
+                            <li>Resource identification in requests<br />
+                                Individual resources are identified in requests, for example using URIs in Web-based REST systems. 
+                                The resources themselves are conceptually separate from the representations that are returned to the client. 
+                                For example, the server could send data from its database as HTML, XML or as JSON—none of which are the server's internal representation.</li>
+                            <li>Resource manipulation through representations<br />
+                                When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource.</li>
+                            <li>Self-descriptive messages<br />
+                                Each message includes enough information to describe how to process the message. For example, which parser to invoke can be specified by a media type.</li>
+                            <li>Hypermedia as the engine of application state (HATEOAS)<br />
+                                Having accessed an initial URI for the REST application—analogous to a human Web user accessing the home page of a website—a REST client should then 
+                                be able to use server-provided links dynamically to discover all the available actions and resources it needs. As access proceeds, 
+                                the server responds with text that includes hyperlinks to other actions that are currently available. 
+                                There is no need for the client to be hard-coded with information regarding the structure or dynamics of the REST service.</li>                            
+                        </aside>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>OData - Open Data Protocol</h3>
+                        <p><a href="http://www.odata.org/" 
+                                       target="_blank"><img 
+                                         src="../OData-Dienste-mit-SAP/images/ODataLogo-250.png" 
+                                         alt="OData Logo"
+                                         class="plain" /></a></p>
+                    </section>
+                    <section>
+                        <h3>OData</h3>
+                        <ul>
+                            <li>V4 ia a OASIS Standard since March 2014</li>
+                            <li>Based on Standards like REST, RSS, Atom, XML and JSON</li>
+                            <li>Provides a uniform interface to data sources (Query + CRUD + Actions)</li>
+                            <li>Allows application integration using Internet technologies</li>
+                            <li>Available for SAP since May 2011 as SAP NetWeaver Gateway (today SAP Gateway)</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>SAP Gateway</h2>
+                        <ul>
+                            <li>SAP Gateway is part of SAP NetWeaver ABAP since 7.40</li>
+                            <li>Allows to connect from Browser, Devices and Plattforms to SAP Systemen</li>
+                            <li>Implements OData v2 and starting with 7.50 also v4)</li>
+                            <li>Can run as a Hub system or embedded i.e. with SAP ERP as an Add-on</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>SAP Gateway - service implementation</h2>
+                                <ul>
+                                    <li>ABAP OO</li>
+                                    <li>Core Data Services (CDS, minimum 7.50, AnyDB)</li>
+                                </ul>
+                    </section>
+                    <section>
+                        <h3>SAP Gateway - Architecture</h3>
+                        <p><img 
+                             src="../OData-Dienste-mit-SAP/images/SAP-Gateway.png" 
+                             alt="SAP Gateway"
+                             class="plain" /></p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Steps to an OData Service with SAP Gateway</h2>
+                    <ul>
+                        <li>Activate SAP Gateway in STC01 <br />(Tasklist SAP_GATEWAY_BASIC_CONFIG)</li>
+                        <li>Define interface in SEGW <br />(Entities, Entity Sets, Function Import)</li>
+                        <li>Implement Model- and Data-Provider classes</li>
+                        <li>Activate Services in /IWFND/MAINT_SERVICE</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h3>Comparison with other SAP Technologies</h3>
+                        <ul>
+                            <li>iDoc<br />
+                                mass data, asynchronous processing</li>
+                            <li>RFC<br />
+                                SAP to SAP connections (also used in SAP Gateway)</li>
+                            <li>OData<br />
+                                Easy to understand HTTP(S) API, synchronous processing</li>
+                        </ul>
+                    </section>
+                </section>
+                <!-- Erweitern -->
+                <section>
+                    <section>
+                        <h3>Benefits of OData (1 of 2)</h3>
+                        <ul>
+                            <li>SAP is basing S/4HANA on it</li>
+                            <li>Humans can understand the interface</li>
+                            <li>Tight integration to SAPUI5</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Benefits of OData (2 of 2)</h3>
+                        <ul>
+                            <li>Push and Pull (Queue) for Backend changes</li>
+                            <li>Access SAP Data from non SAP programming languages </li>
+                            <li>Various uses of the data provided</li>
+                        </ul>
+                    </section>
+            <section>
+                        <h3>Drawbacks of OData</h3>
+                        <ul>
+                            <li>Backend must be reachable erreichbar sein</li>
+                            <li>Only synchronous processing</li>
+                        </ul>
+                    </section>
+                </section>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                // Display the page number of the current slide
+                slideNumber: true,
+                progress: true,
+                history: true,
+                dependencies: []
+            });
+        </script>
+
+        <div class="share-csw" style="position: absolute; bottom: 1em; left: 50%; margin-left: -39px; z-index: 20;">
+            <a class="share-csw-twitter" href="http://twitter.com/wolf_gregor" target="_blank">
+                <svg viewbox="0 0 2000 1625.36" width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41" style="fill:#ffffff"/>
+                </svg>
+            </a>
+
+            <a class="share-csw-github" href="https://github.com/gregorwolf" target="_blank">
+                <img src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png" alt="GitHub" width="25px" height="25px">
+            </a>
+
+        </div>
+
+        <style>
+            /* Social sharing */
+            .share-csw a {
+                display: inline-block;
+                height: 34px;
+                line-height: 32px;
+                padding: 5px 10px;
+                color: #fff;
+                font-family: Helvetica, sans-serif;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 12px;
+                vertical-align: top;
+                box-sizing: border-box;
+            }
+            
+            .share-csw-github {
+            }
+
+            .share-csw {
+                line-height: 30px;
+            }
+
+            .share-csw svg img {
+                vertical-align: top;
+            }
+
+            .share-csw a + a {
+                margin-bottom: 1em;
+            }
+
+            .share-csw-twitter {
+                background-color: #00aced;
+            }
+        </style>
+        
+    </body>
+</html>
