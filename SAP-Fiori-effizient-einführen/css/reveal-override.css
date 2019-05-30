@@ -21,3 +21,7 @@ body:after {
 p, ul, li, section, th, td {
     background-color: rgba(255,255,255,0.8);
 }
+
+.reveal section img {
+    border: 0px;
+}
