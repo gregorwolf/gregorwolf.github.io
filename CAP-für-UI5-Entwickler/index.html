@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css" />
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css" />
+        -->
+        <link rel="stylesheet" href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css" />
+        <title>SAP Cloud Application Programming Model für UI5 Entwickler</title>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <p><img 
+                        src="../CAP-for-ABAPers/images/cap.svg" width="250em"
+                        alt="Willkommen zu CAP"
+                        class="plain" /></p>
+                    <h2>CAP</h2>
+                    <h4>SAP Cloud Application Programming Model<br />
+                        für UI5 Entwickler</h4>
+                    <p>Gregor Wolf</p>
+                </section>
+                <section>
+                    <h2>Was ist CAP?</h2>
+                    <p><img 
+                        src="../CAP-for-ABAPers/images/CAP-Architecture.png" width="66%"
+                        alt="CAP Architektur"
+                        class="plain" /></p>
+                </section>
+                <section data-background="../CAP-for-ABAPers/images/Open-and-Opinionated.jpg">
+                    <h3>Offen aber mit eigener Meinung</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>CAP hat eine Meinung</th>
+                                <th>CAP ist offen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Übergeordnete Konzepte</td>
+                                <td>Zugriff auf niedrigere Schichten</td>
+                            </tr>
+                            <tr>
+                                <td>Bewährte Praktiken sofort einsatzbereit</td>
+                                <td>Anpassungen durch eigne Logik</td>
+                            </tr>
+                            <tr>
+                                <td>Eingebaute Untersützung für SAP Fiori und SAP HANA</td>
+                                <td>Offen für andere UI- und Datenbanktechnologien</td>
+                            </tr>
+                            <tr>
+                                <td>Untersützung für bestimmte Entwicklungsumgebungen </td>
+                                <td>Mit @sap/cds-dk für die Untersützung anderer Editor und IDE's</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section data-background="../CAP-for-ABAPers/images/SE80-Bookshop.jpg">
+                    <h3>Vergleich</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Funktion</th>
+                                <th>ABAP</th>
+                                <th>CAP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>IDE</td>
+                                <td>SE80 / AiE</td>
+                                <td>SAP Business Application Studio (BAS) / VS Code / vim / ... </td>
+                            </tr>
+                            <tr>
+                                <td>Datenbanktabellen</td>
+                                <td>SE11</td>
+                                <td>CDS</td>
+                            </tr>
+                            <tr>
+                                <td>OData Service Entwickeln</td>
+                                <td>SEGW / CDS</td>
+                                <td>CDS</td>
+                            </tr>
+                            <tr>
+                                <td>Geschäftslogik</td>
+                                <td>ABAP</td>
+                                <td>Java oder JavaScript</td>
+                            </tr>
+                            <tr>
+                                <td>OData Service Bereitstellen</td>
+                                <td>/IWFND/MAINT_SERVICE</td>
+                                <td>cds watch / cds run</td>
+                            </tr>
+                            <tr>
+                                <td>Testen</td>
+                                <td>/IWFND/GW_CLIENT</td>
+                                <td>REST Client, curl, wget</td>
+                            </tr>
+                            <tr>
+                                <td>Applikationsserver</td>
+                                <td>SAP Application Server ABAP<br />
+                                SAP Business Technology Platform ABAP Environment (Stempunk)</td>
+                                <td>Java oder Node.JS runtime in <br />
+                                    SAP Business Technology Platform  <br />
+                                    Cloud Foundry oder Kyma (Kubernetes)<br />
+                                    oder SAP HANA XSA (on premise)<br />
+                                    Nicht von SAP untersützt:<br />
+                                    Microsoft Azure, AWS, Google Cloud Platform</td>
+                            </tr>
+                            <tr>
+                                <td>Datenbank</td>
+                                <td>SAP DB’s: HANA, ASE, MaxDB<br />
+                                    Oracle, MS SQL Server, IBM DB2 </td>
+                                <td>Lokale Entwicklung: sqlite<br />
+                                    <a href="https://github.com/sapmentors/cds-pg">Community Projekt cds-pg for PostgreSQL</a><br />
+                                    Production: SAP HANA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h2>Community Project cds-pg</h2>
+                    <p><img 
+                        src="../CAP-for-ABAPers/images/Devtoberfest2020.jpg" width="25%"
+                        alt="Devtoberfest 2020"
+                        class="plain" /></p>
+                    <p><a href="https://github.com/SAP-samples/sap-devtoberfest-2020/blob/master/entries.md#cds-pg-postgresql-adapter-for-sap-cds-cap">cds-pg: PostgreSQL adapter for SAP CDS (CAP)</a><br />
+                    Gewinner des SAP Devtoberfest 2020.</p>
+                </section>
+                <section>
+                    <h2>Anforderung</h2>
+                    <p>Aufgrund der Corona-Vorschriften ist unser<br />
+                        Besucherzentrum verpflichtet,<br />
+                        die Besucher beim betreten <br />
+                        und beim verlassen des Gebäudes<br />
+                        zu registrieten</p>
+                </section>
+                <section>
+                    <h2>Auf geht's</h2>
+                    <p><img 
+                        src="../CAP-for-ABAPers/images/SAPBusinessApplicationStudio_logo.png"
+                        alt="BAS"
+                        class="plain" /></p>
+                    <p>im SAP Business Application Studio</p>
+                </section>
+                <section>
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="https://cap.cloud.sap/">capire - die offizielle CAP Dokumentation</a></li>
+                        <li><a href="https://developers.sap.com/tutorials/appstudio-onboarding.html">Set Up SAP Business Application Studio for Development</a></li>
+                        <li><a href="https://open.sap.com/courses/cp7">OpenSAP Course: Building Applications with SAP Cloud Application Programming Model</a></li>
+                        <li><a href="https://bit.ly/cap-com">CAP Community</a></li>
+                        <li><a href="https://sapmentors.github.io/reCAP/">re>≡CAP Conference</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Wesentliche Erkenntnisse</h3>
+                    <p>SAP Cloud Application Programming Model (CAP)</p>
+                    <ul>
+                        <li>Schnell zu API und UI</li>
+                        <li>Verfügbar für Java und Node.JS</li>
+                        <li>Untersützt die SAP Business Technology Platform<br />
+                            und SAP HANA XSA on Premise</li>
+                    </ul>
+                </section>
+                <!-- Contact -->
+                <section>
+                    <h2>Kontakt</h2>
+                    <p style="text-align: left; margin-left:5em">
+                        Gregor Wolf, 
+                        <a href="https://computerservice-wolf.com/" target="_blank">Computerservice Wolf</a><br />
+                        <a href="mailto:gregor@computerservice-wolf.com" target="_blank">gregor@computerservice-wolf.com</a><br />
+                        <a href="https://twitter.com/wolf_gregor" target="_blank">@wolf_gregor</a>
+                    </p>
+                    <table>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>Business Card</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><img src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png" 
+                                    alt="Business Card"
+                                    height="250px"
+                                    class="plain" /></td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                // Display the page number of the current slide
+                slideNumber: true,
+                progress: true,
+                history: true,
+                dependencies: []
+            });
+        </script>
+
+        <div class="share-csw" style="position: absolute; bottom: 1em; left: 50%; margin-left: -39px; z-index: 20;">
+            <a class="share-csw-twitter" href="http://twitter.com/wolf_gregor" target="_blank">
+                <svg viewbox="0 0 2000 1625.36" width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41" style="fill:#ffffff"/>
+                </svg>
+            </a>
+
+            <a class="share-csw-github" href="https://github.com/gregorwolf" target="_blank">
+                <img src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png" alt="GitHub" width="25px" height="25px">
+            </a>
+
+        </div>
+
+        <style>
+            /* Social sharing */
+            .share-csw a {
+                display: inline-block;
+                height: 34px;
+                line-height: 32px;
+                padding: 5px 10px;
+                color: #fff;
+                font-family: Helvetica, sans-serif;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 12px;
+                vertical-align: top;
+                box-sizing: border-box;
+            }
+            
+            .share-csw-github {
+            }
+
+            .share-csw {
+                line-height: 30px;
+            }
+
+            .share-csw svg img {
+                vertical-align: top;
+            }
+
+            .share-csw a + a {
+                margin-bottom: 1em;
+            }
+
+            .share-csw-twitter {
+                background-color: #00aced;
+            }
+        </style>
+        
+    </body>
+</html>
