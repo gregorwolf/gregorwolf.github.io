@@ -1,219 +1,310 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css" />
-        <!--
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css"
+    />
+    <!--
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css" />
         -->
-        <link rel="stylesheet" href="./css/reveal-override.css" />
-        <title>OData Dienste mit SAP</title>
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
-                <section>
-                    <p>Gregor Wolf</p>
-                    <h1>OData Dienste<br />
-                        mit SAP</h1>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td><!--
+    <link rel="stylesheet" href="./css/reveal-override.css" />
+    <title>OData Dienste mit SAP</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <p>Gregor Wolf</p>
+          <h1>
+            OData Dienste<br />
+            mit SAP
+          </h1>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <!--
                 <a href="http://www.profes.de/" 
                                        target="_blank"><img src="../SAP-Fiori-effizient-einf%C3%BChren/images/profes-logo.png" 
                                          alt="Profes"
                                          height="200px"
                                          class="plain" /></a> -->
                 </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <section>
-                    <section>
-                        <h2>REST</h2>
-                        <ul>
-                            <li>Representational State Transfer</li>
-                            <li>Client-Server</li>
-                            <li>Zustandslos</li>
-                            <li>Caching</li>
-                            <li>Mehrschichtige Systeme</li>
-                            <li>Einheitliche Schnittstelle</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Einheitliche Schnittstelle</h2>
-                        <ul>
-                            <li>Adressierbarkeit von Ressourcen</li>
-                            <li>Repräsentationen von Ressourcen</li>
-                            <li>Selbstbeschreibende Nachrichten</li>
-                            <li>Verknüpfung von Entitäten durch Links <br />
-                                „Hypermedia as the Engine of Application State“ (HATEOAS)</li>
-                        </ul>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>OData - Open Data Protocol</h3>
-                        <p><a href="http://www.odata.org/" 
-                                       target="_blank"><img 
-                                         src="images/ODataLogo-250.png" 
-                                         alt="OData Logo"
-                                         class="plain" /></a></p>
-                    </section>
-                    <section>
-                        <h3>OData</h3>
-                        <ul>
-                            <li>V4 ist seit März 2014 ein OASIS Standard</li>
-                            <li>Baut auf Standards wie REST, XML und JSON auf</li>
-                            <li>Stellt einheitliche Schnittstellen für den Zugriff auf Datenquellen bereit (Query + CRUD + Actions)</li>
-                            <li>Ermöglicht die Integration in Anwendungen basierend auf Internettechnologien</li>
-                            <li>Verfügbar in SAP seit der Einführung (Mai 2011) des SAP NetWeaver Gateway (heute SAP Gateway)</li>
-                        </ul>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h2>SAP Gateway</h2>
-                        <ul>
-                            <li>SAP Gateway ist ab 7.40 Teil von SAP NetWeaver</li>
-                            <li>Erlaubt die Verbindung von Browsern, Geräten und Plattformen mit SAP Systemen</li>
-                            <li>Implementiert das OData Protokoll<br />(v2, teilweise v4)</li>
-                            <li>Kann Eigenständig oder auch zusammen mit z.B. SAP ERP als Add-on betrieben werden (embedded)</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>SAP Gateway - Implementierung</h2>
-                                <ul>
-                                    <li>ABAP OO</li>
-                                    <li>Core Data Services (CDS, ab 7.50, AnyDB)</li>
-                                </ul>
-                    </section>
-                    <section>
-                        <h3>SAP Gateway - Architektur</h3>
-                        <p><img 
-                             src="images/SAP-Gateway.png" 
-                             alt="SAP Gateway"
-                             class="plain" /></p>
-                    </section>
-                </section>
-                <section>
-                    <h2>Schritte zum OData Service mit SAP Gateway</h2>
-                    <ul>
-                        <li>SAP Gateway aktivieren in STC01 <br />(Tasklist SAP_GATEWAY_BASIC_CONFIG)</li>
-                        <li>Schnittstellendefinition in SEGW <br />(Entities, Entity Sets, Function Import)</li>
-                        <li>Implementierung der <br />Model- und Data-Provider Klassen</li>
-                        <li>Aktivierung des Services in /IWFND/MAINT_SERVICE</li>
-                    </ul>
-                </section>
-                <section>
-                    <section>
-                        <h3>Vergleich mit bestehenden Technologien</h3>
-                        <ul>
-                            <li>iDoc<br />
-                                Massendaten, asynchrone Verarbeitung</li>
-                            <li>RFC<br />
-                                SAP zu SAP Verbindungen</li>
-                            <li>SOAP<br />
-                                Wissen für ABAP und PI/PO erforderlich<br />
-                                Kann nicht einfach im Browser genutzt werden</li>
-                            <li>OData<br />
-                                Einfach verständliche HTTP(S) API,<br />synchrone Verarbeitung</li>
-                        </ul>
-                    </section>
-                </section>
-                <!-- Erweitern -->
-                <section>
-                    <section>
-                        <h3>Vorteile von OData 1/2</h3>
-                        <ul>
-                            <li>SAP setzt in S/4HANA darauf</li>
-                            <li>Verständliche Schnittstelle für Entwickler</li>
-                            <li>Wenn JSON verwendet wird auch lesbare Daten</li>
-                            <li>Verknüpfung mit anderen modernen  SAP Technologien (SAPUI5, Fiori) möglich</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Vorteile von OData 2/2</h3>
-                        <ul>
-                            <li>Push und Pull (Queue) von Backend Events möglich</li>
-                            <li>Zugriff auf SAP Daten, in nicht SAP typischen Programmiersprachen möglich </li>
-                            <li>Vielfältige Verwendungsmöglichkeiten der bereitgestellten Daten</li>
-                        </ul>
-                    </section>
-            <section>
-                        <h3>Nachteile von OData</h3>
-                        <ul>
-                            <li>Backend muss erreichbar sein</li>
-                            <li>Nur synchrone Verarbeitung</li>
-                        </ul>
-                    </section>
-                </section>
-            </div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
-        <script>
-            Reveal.initialize({
-                // Display the page number of the current slide
-                slideNumber: true,
-                progress: true,
-                history: true,
-                dependencies: []
-            });
-        </script>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <section>
+            <h2>REST</h2>
+            <ul>
+              <li>Representational State Transfer</li>
+              <li>Client-Server</li>
+              <li>Zustandslos</li>
+              <li>Caching</li>
+              <li>Mehrschichtige Systeme</li>
+              <li>Einheitliche Schnittstelle</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Einheitliche Schnittstelle</h2>
+            <ul>
+              <li>Adressierbarkeit von Ressourcen</li>
+              <li>Repräsentationen von Ressourcen</li>
+              <li>Selbstbeschreibende Nachrichten</li>
+              <li>
+                Verknüpfung von Entitäten durch Links <br />
+                „Hypermedia as the Engine of Application State“ (HATEOAS)
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>OData - Open Data Protocol</h3>
+            <p>
+              <a href="http://www.odata.org/" target="_blank"
+                ><img
+                  src="images/ODataLogo-250.png"
+                  alt="OData Logo"
+                  class="plain"
+              /></a>
+            </p>
+          </section>
+          <section>
+            <h3>OData</h3>
+            <ul>
+              <li>V4 ist seit März 2014 ein OASIS Standard</li>
+              <li>Baut auf Standards wie REST, XML und JSON auf</li>
+              <li>
+                Stellt einheitliche Schnittstellen für den Zugriff auf
+                Datenquellen bereit (Query + CRUD + Actions)
+              </li>
+              <li>
+                Ermöglicht die Integration in Anwendungen basierend auf
+                Internettechnologien
+              </li>
+              <li>
+                Verfügbar in SAP seit der Einführung (Mai 2011) des SAP
+                NetWeaver Gateway (heute SAP Gateway)
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>SAP Gateway</h2>
+            <ul>
+              <li>SAP Gateway ist ab 7.40 Teil von SAP NetWeaver</li>
+              <li>
+                Erlaubt die Verbindung von Browsern, Geräten und Plattformen mit
+                SAP Systemen
+              </li>
+              <li>Implementiert das OData Protokoll<br />(v2, teilweise v4)</li>
+              <li>
+                Kann Eigenständig oder auch zusammen mit z.B. SAP ERP als Add-on
+                betrieben werden (embedded)
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>SAP Gateway - Implementierung</h2>
+            <ul>
+              <li>ABAP OO</li>
+              <li>Core Data Services (CDS, ab 7.50, AnyDB)</li>
+            </ul>
+          </section>
+          <section>
+            <h3>SAP Gateway - Architektur</h3>
+            <p>
+              <img
+                src="images/SAP-Gateway.png"
+                alt="SAP Gateway"
+                class="plain"
+              />
+            </p>
+          </section>
+        </section>
+        <section>
+          <h2>Schritte zum OData Service mit SAP Gateway</h2>
+          <ul>
+            <li>
+              SAP Gateway aktivieren in STC01 <br />
+              (Tasklist SAP_GATEWAY_BASIC_CONFIG)
+            </li>
+            <li>
+              Schnittstellendefinition in SEGW <br />
+              (Entities, Entity Sets, Function Import)
+            </li>
+            <li>Implementierung der <br />Model- und Data-Provider Klassen</li>
+            <li>Aktivierung des Services in /IWFND/MAINT_SERVICE</li>
+          </ul>
+        </section>
+        <section>
+            <h2>Push und Pull</h2>
+            <p>
+                mit dem Subscription und Notification Flow<br />
+                <img src="./images/subscription-notification.png" />
+            </p>
+          </section>
+        <section>
+          <section>
+            <h3>Vergleich mit bestehenden Technologien</h3>
+            <ul>
+              <li>
+                iDoc<br />
+                Massendaten, asynchrone Verarbeitung
+              </li>
+              <li>
+                RFC<br />
+                SAP zu SAP Verbindungen
+              </li>
+              <li>
+                SOAP<br />
+                Wissen für ABAP und PI/PO erforderlich<br />
+                Kann nicht einfach im Browser genutzt werden
+              </li>
+              <li>
+                OData<br />
+                Einfach verständliche HTTP(S) API,<br />
+                synchrone Verarbeitung
+              </li>
+            </ul>
+          </section>
+        </section>
+        <!-- Erweitern -->
+        <section>
+          <section>
+            <h3>Vorteile von OData 1/2</h3>
+            <ul>
+              <li>SAP setzt in S/4HANA darauf</li>
+              <li>Verständliche Schnittstelle für Entwickler</li>
+              <li>Wenn JSON verwendet wird auch lesbare Daten</li>
+              <li>
+                Verknüpfung mit anderen modernen SAP Technologien (SAPUI5,
+                Fiori) möglich
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Vorteile von OData 2/2</h3>
+            <ul>
+              <li>Push und Pull (Queue) von Backend Events möglich</li>
+              <li>
+                Zugriff auf SAP Daten, in nicht SAP typischen
+                Programmiersprachen möglich
+              </li>
+              <li>
+                Vielfältige Verwendungsmöglichkeiten der bereitgestellten Daten
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Nachteile von OData</h3>
+            <ul>
+              <li>Backend muss erreichbar sein</li>
+              <li>Nur synchrone Verarbeitung</li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        progress: true,
+        history: true,
+        dependencies: [],
+      });
+    </script>
 
-        <div class="share-csw" style="position: absolute; bottom: 1em; left: 50%; margin-left: -39px; z-index: 20;">
-            <a class="share-csw-twitter" href="http://twitter.com/wolf_gregor" target="_blank">
-                <svg viewbox="0 0 2000 1625.36" width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41" style="fill:#ffffff"/>
-                </svg>
-            </a>
+    <div
+      class="share-csw"
+      style="
+        position: absolute;
+        bottom: 1em;
+        left: 50%;
+        margin-left: -39px;
+        z-index: 20;
+      "
+    >
+      <a
+        class="share-csw-twitter"
+        href="http://twitter.com/wolf_gregor"
+        target="_blank"
+      >
+        <svg
+          viewbox="0 0 2000 1625.36"
+          width="22"
+          height="22"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41"
+            style="fill: #ffffff"
+          />
+        </svg>
+      </a>
 
-            <a class="share-csw-github" href="https://github.com/gregorwolf" target="_blank">
-                <img src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png" alt="GitHub" width="25px" height="25px">
-            </a>
+      <a
+        class="share-csw-github"
+        href="https://github.com/gregorwolf"
+        target="_blank"
+      >
+        <img
+          src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png"
+          alt="GitHub"
+          width="25px"
+          height="25px"
+        />
+      </a>
+    </div>
 
-        </div>
+    <style>
+      /* Social sharing */
+      .share-csw a {
+        display: inline-block;
+        height: 34px;
+        line-height: 32px;
+        padding: 5px 10px;
+        color: #fff;
+        font-family: Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
 
-        <style>
-            /* Social sharing */
-            .share-csw a {
-                display: inline-block;
-                height: 34px;
-                line-height: 32px;
-                padding: 5px 10px;
-                color: #fff;
-                font-family: Helvetica, sans-serif;
-                text-decoration: none;
-                font-weight: bold;
-                font-size: 12px;
-                vertical-align: top;
-                box-sizing: border-box;
-            }
-            
-            .share-csw-github {
-            }
+      .share-csw-github {
+      }
 
-            .share-csw {
-                line-height: 30px;
-            }
+      .share-csw {
+        line-height: 30px;
+      }
 
-            .share-csw svg img {
-                vertical-align: top;
-            }
+      .share-csw svg img {
+        vertical-align: top;
+      }
 
-            .share-csw a + a {
-                margin-bottom: 1em;
-            }
+      .share-csw a + a {
+        margin-bottom: 1em;
+      }
 
-            .share-csw-twitter {
-                background-color: #00aced;
-            }
-        </style>
-        
-    </body>
+      .share-csw-twitter {
+        background-color: #00aced;
+      }
+    </style>
+  </body>
 </html>
