@@ -1,211 +1,410 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css" />
-        <!--
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css"
+    />
+    <!--
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css" />
         -->
-        <link rel="stylesheet" href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css" />
-        <title>Technische Optionen für die S/4HANA Erweiterung - In-App und Side-by-Side</title>
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
-                <section>
-                    <p>Gregor Wolf</p>
-                    <h3>Technische Optionen für die<br />
-                        S/4HANA (Cloud) Erweiterung<br />
-                        In-App und Side-by-Side</h3>
-                </section>
-                <section>
-                    <h3>SAP TechEd 2018, Barcelona:<br />&nbsp;</h3>
-                    <blockquote cite="https://blogs.sap.com/2018/11/08/keep-the-core-clean-clarifying-points-from-bjorn-goerkes-keynote/">
-                        &ldquo;Keep the Core Clean&rdquo;
-                    </blockquote>
-                    <p><br />Björn Goerke,<br />
-                        Former SAP CTO & President SAP Business Technology Platform</p>
-                </section>
-                <section>
-                    <section>
-                        <h4>Spektrum der Erweiterungsmöglichkeiten</h4>
-                        <img data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/ExtensibilitySpectrum.png">
-                    </section>
-                    <section>
-                        <h4>UI Adaptation - Demo</h4>
-                        <a href="https://ui5.sap.com/test-resources/sap/ui/demoapps/demokit/rta/fiori-elements/test/index.html#masterDetail-display&//SEPMRA_C_PD_Product(Product='HT-2001',DraftUUID=guid'00000000-0000-0000-0000-000000000000',IsActiveEntity=true)" 
-                            target="_blank"><img data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/UI-Adapdation.png" alt="UI Adapdation Demo Application"></a>
-                    </section>
-                    <section>
-                        <h4>Analytical Apps</h4>
-                        <a href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/#/multiSelect/?appId=F0029,F0029A,F0343,F0512A,F0513A,F0515A,F0517A,F0571,F0572,F0574,F0575,F0576A,F0681,F0682,F0683,F0693A,F0740,F0740A,F0741,F0741A,F0756A,F0817,F0860,F0861,F0925A,F0926A,F0927A,F0928A,F0929A,F0930A,F0931A,F0932A,F0933A,F0934A,F0935A,F0936A,F0937A,F0938A,F0939A,F0940A,F0941A,F0942A,F0943A,F0944A,F0945A,F0948A,F0949A,F0956A,F0965A,F0996A,F0997,F1076,F1077,F1239,F1249,F1250,F1377,F1378,F1380,F1393,F1422A,F1423A,F1440A,F1582B,F1583B,F1584A,F1585A,F1586A,F1595,F1609,F1615A,F1617,F1617A,F1619,F1652,F1653,F1655,F1660,F1661,F1662,F1663,F1664,F1698,F1733,F1734,F1735,F1736,F1737,F1738,F1739,F1740,F1741,F1742,F1743,F1744,F1745,F1746,F1747,F1748,F1749,F1750,F1751,F1752,F1753,F1768,F1780,F1802,F1810,F1904,F1905,F1943,F1954,F1956,F1970,F1971,F1973,F1974,F1975,F1976,F1990,F1993,F2005,F2006,F2012,F2013,F2014,F2015,F2016,F2017,F2018,F2019,F2034,F2035,F2061,F2095,F2096,F2103,F2122,F2123,F2124,F2125,F2127,F2133,F2134,F2136,F2136A,F2137,F2139,F2141,F2161,F2163,F2164,F2171,F2172,F2182,F2185,F2186,F2200,F2208,F2209,F2216,F2232,F2234,F2235,F2242,F2251,F2270,F2271,F2309,F2314,F2331,F2332,F2334A,F2338,F2339,F2344,F2347,F2358,F2359,F2363,F2364,F2402,F2416,F2423,F2445,F2458,F2492,F2519,F2521,F2522,F2523,F2539,F2540,F2541,F2573,F2574,F2596,F2600,F2601,F2605,F2627,F2628,F2638,F2653,F2655,F2672,F2673,F2674,F2675,F2676,F2677,F2678,F2679,F2686,F2687,F2688,F2709,F2721,F2741,F2745,F2746,F2747,F2748,F2749,F2750,F2751,F2752,F2753,F2754,F2755,F2766,F2767,F2769,F2783,F2786,F2801,F2802,F2812,F2828,F2835,F2838,F2839,F2840,F2842,F2843,F2847,F2848,F2849,F2850,F2851,F2852,F2853,F2854,F2855,F2856,F2857,F2858,F2859,F2860,F2861,F2862,F2863,F2864,F2895,F2896,F2903,F2912,F2913,F2917,F2920,F2921,F2925,F2933,F2941,F2964,F2976,F2977,F2978,F2979,F2988,F2995,F2996,F2997,F2998,F2999,F3000,F3001,F3016,F3072,F3076,F3082,F3084,F3096,F3098,F3108,F3130,F3135,F3142,F3164,F3165,F3166,F3167,F3168,F3180,F3181,F3182,F3228,F3239,F3242,F3246,F3252,F3260,F3261,F3262,F3263,F3264,F3267,F3273,F3274,F3289,F3294,F3299,F3301,F3331,F3356,F3382,F3383,F3384,F3387,F3388,F3408,F3417,F3424,F3432,F3434,F3444,F3450,F3461,F3462,F3463,F3464,F3465,F3468,F3470,F3471,F3472,F3481,F3482,F3483,F3492,F3604,F3626,F3639,F3640,F3641,F3666,F3671,F3679,F3684,F3685,F3698,F3699,F3700,F3701,F3702,F3703,F3704,F3844,W0049,W0118,W0123,W0124,W0125,W0128&releaseId=S14OP" 
-                            target="_blank">Fiori Apps Library</a>
-                    </section>
-                    <section>
-                        <h4>Benutzerdefinierte Geschäftslogik</h4>                        
-                        <a href="https://help.sap.com/viewer/f544846954f24b9183eddadcc41bdc3b/1905.500/en-US/dd39f11e977b41b49a5421399f4850f5.html"><img data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/CustomBusinessLogic.png" alt="Statements in ABAP for Key Users"></a>
-                    </section>
-                </section>
-                <section>
-                        <section>
-                            <h4>Side-by-side Architektur</h4>
-                            <img data-src="./bilder/Side-by-Side.png">
-                        </section>
-                        <section>
-                            <h4>Side-by-side Extension Application Layers</h4>
-                            <img data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/ApplicationLayers.png">
-                        </section>
-                        <section>
-                            <h4>SAP Cloud SDK & CAPM</h4>
-                            <img data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/SAP-Cloud-SDK.png">
-                        </section>
-                        <section>
-                            <h4>SAP Business Technology Platform, ABAP Environment</h4>
-                            <img data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/SAPCP-ABAP-Environment.png">
-                        </section>
-                        <section>
-                            <h4>SAP Business Technology Platform Extension Factory</h4>
-                            <img data-src="./bilder/Extension-Factory.png">
-                        </section>
-                </section>
-                <section>
-                    <h2>Zusammenfassung</h2>
-                    <ul>
-                        <li class="fragment">"Keep the Core clean"</li>
-                        <li class="fragment">Soweit es geht mit Customizing und In-App-Erweiterungen auskommen</li>
-                        <li class="fragment">Side-by-Side Erweiterungen genau planen</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Vielen Dank</h2>
-                    <h2>Ihre Fragen ...</h2>
-                </section>                
-                <section>
-                    <h2>Contact</h2>
-                    <p style="text-align: left; margin-left:5em">
-                        Gregor Wolf, 
-                        <a href="https://computerservice-wolf.com/" target="_blank">Computerservice Wolf</a><br />
-                        <a href="mailto:gregor@computerservice-wolf.com" target="_blank">gregor@computerservice-wolf.com</a><br />
-                        Twitter: <a href="https://twitter.com/wolf_gregor" target="_blank">@wolf_gregor</a>
-                    </p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Präsentation</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>Business Card</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><img src="./bilder/QR-Code-Link-zu-den-Slides.png" 
-                                         alt="Link zur Präsentation"
-                                         height="250px"
-                                         class="plain" /></td>
-                                <td></td>
-                                <td></td>
-                                <td><img src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png" 
-                                         alt="Business Card"
-                                         height="250px"
-                                         class="plain" /></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>                
-                <section>
-                    <section>
-                        <h2>Links</h2>
-                        <ul>
-                            <li><a href="https://www.sap.com/documents/2015/07/2ad59b27-347c-0010-82c7-eda71af511fa.html">Whitepaper: SAP S/4HANA and SAP S/4HANA Cloud Extensibility for Customers and Partners</a></li>
-                            <li><a href="https://www.sap.com/documents/2018/05/606d1ee8-037d-0010-87a3-c30de2ffd8ff.html?need_redirect_to_background_page=false">Präsentation: S/4HANA In-App Extensibility Overview</a></li>
-                            <li><a href="https://help.sap.com/viewer/1e30a6dbe1084049b914baf8f0348bbb/1809.002/en-US/3ccb50e724b045508fea8b2cf1774b2b.html">help.sap.com: SAP S/4HANA 1809 FPS02 Extensibility</a></li>
-                            <li><a href="https://extensibilityexplorer.cfapps.eu10.hana.ondemand.com/ExtensibilityExplorer/">SAP Extensibility Explorer for SAP S/4HANA Cloud</a></li>
-                            <li><a href="https://developers.sap.com/group.abap-custom-ui-with-webide.html">Tutorial Group: Create a Custom UI for S/4HANA Cloud</a></li>
-                            <li><a href="https://wiki.scn.sap.com/wiki/display/Fiori/SAP+Fiori+for+S4HANA">SAP Fiori for S/4HANA</a></li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Links - SAP Business Technology Platform Extension Factory</h3>
-                        <ul>
-                            <li><a href="https://kyma-project.io/">Basiert auf dem Open Source Projekt Kyma</a></li>
-                            <li><a href="https://help.sap.com/doc/43b304f99a8145809c78f292bfc0bc58/Cloud/en-US/98bf747111574187a7c76f8ced51cfeb.html?from=2019-06-05&to=2019-06-06">Preview Release 6th June 2019 in SAP CP Cloud Foundry</a></li>
-                            <li><a href="https://open.sap.com/courses/kyma1/">Weitere Details im OpenSAP Kurs: Kyma – A Flexible Way to Connect and Extend Applications</a></li>
-                        </ul>
-                    </section>
-                </section>
-            </div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
-        <script>
-            Reveal.initialize({
-                // Display the page number of the current slide
-                slideNumber: true,
-                progress: true,
-				history: true,
-                controlsLayout: "edges",
-                transition: 'convex', // none/fade/slide/convex/concave/zoom
-                dependencies: []
-            });
-        </script>
+    <link
+      rel="stylesheet"
+      href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css"
+    />
+    <title>
+      Technische Optionen für die S/4HANA Erweiterung - In-App und Side-by-Side
+    </title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <p>Gregor Wolf</p>
+          <h3>
+            Technische Optionen für die<br />
+            S/4HANA (Cloud) Erweiterung<br />
+            In-App und Side-by-Side
+          </h3>
+        </section>
+        <section>
+          <h3>SAP TechEd 2018, Barcelona:<br />&nbsp;</h3>
+          <blockquote
+            cite="https://blogs.sap.com/2018/11/08/keep-the-core-clean-clarifying-points-from-bjorn-goerkes-keynote/"
+          >
+            &ldquo;Keep the Core Clean&rdquo;
+          </blockquote>
+          <p>
+            <br />Björn Goerke,<br />
+            Former SAP CTO & President SAP Business Technology Platform
+          </p>
+        </section>
+        <section>
+          <section>
+            <h4>S/4HANA and Fiori Funktionen</h4>
+            <ul>
+              <li>Embedded/Real Time Analytics</li>
+              <li>Personalisierung</li>
+              <li>User Assistance</li>
+              <li>Suche</li>
+              <li>Benachrichtigungen</li>
+              <li>SAP Conversational AI (Früher: CoPilot)</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Embedded/Real Time Analytics</h4>
+            <p>Overview Pages</p>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/embedded-analytics.png"
+            />
+          </section>
+          <section>
+            <h4>Embedded/Real Time Analytics</h4>
+            <p>Analytical List Pages</p>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/analytical-list-page.png"
+            />
+          </section>
+          <section>
+            <h4>Personalisierung durch Varianten</h4>
+            <ul>
+              <li>Suchparameter</li>
+              <li>Auswahl der in der Tabelle angezeigten spalten</li>
+              <li>Variante kann als Kachel abgespeichert werden</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Suche</h4>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/search.png"
+            />
+          </section>
+          <section>
+            <h4>User Assistance</h4>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/user-assistance.png"
+            />
+          </section>
+          <section>
+            <h4>Benachrichtigungen</h4>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/notifications.png"
+            />
+          </section>
+          <section>
+            <h4>SAP Conversational AI (Früher: CoPilot)</h4>
+            <a
+              href="https://help.sap.com/viewer/product/SAP_CONVERSATIONAL_AI/"
+              target="_blank"
+              ><img
+                data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/copilot.png"
+            /></a>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h4>Spektrum der Erweiterungsmöglichkeiten</h4>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/ExtensibilitySpectrum.png"
+            />
+          </section>
+          <section>
+            <h4>UI Adaptation - Demo</h4>
+            <a
+              href="https://ui5.sap.com/test-resources/sap/ui/demoapps/demokit/rta/fiori-elements/test/index.html#masterDetail-display&//SEPMRA_C_PD_Product(Product='HT-2001',DraftUUID=guid'00000000-0000-0000-0000-000000000000',IsActiveEntity=true)"
+              target="_blank"
+              ><img
+                data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/UI-Adapdation.png"
+                alt="UI Adapdation Demo Application"
+            /></a>
+          </section>
+          <section>
+            <h4>Kundenspezifische Felder</h4>
+            Beispiel aus dem SAP Extensibility Explorer:<br />
+            <a
+              href="https://extensibilityexplorer.cfapps.eu10.hana.ondemand.com/ExtensibilityExplorer/#/ExtScenario/301"
+              target="_blank"
+              >Enable Custom Fields in the Purchasing Process</a
+            >
+          </section>
+          <section>
+            <h4>Benutzerdefinierte Geschäftslogik</h4>
+            <a
+              href="https://help.sap.com/docs/ABAP_PLATFORM_NEW/ed0e11412f9841e7ac5cd9a6799368d4/dd39f11e977b41b49a5421399f4850f5.html?locale=de-DE"
+              ><img
+                data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/CustomBusinessLogic.png"
+                alt="Statements in ABAP for Key Users"
+            /></a>
+          </section>
+          <section>
+            <h4>Analytical Apps</h4>
+            <a
+              href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/#/multiSelect/?appId=F0029,F0029A,F0343,F0512A,F0513A,F0515A,F0517A,F0571,F0572,F0574,F0575,F0576A,F0681,F0682,F0683,F0693A,F0740,F0740A,F0741,F0741A,F0756A,F0817,F0860,F0861,F0925A,F0926A,F0927A,F0928A,F0929A,F0930A,F0931A,F0932A,F0933A,F0934A,F0935A,F0936A,F0937A,F0938A,F0939A,F0940A,F0941A,F0942A,F0943A,F0944A,F0945A,F0948A,F0949A,F0956A,F0965A,F0996A,F0997,F1076,F1077,F1239,F1249,F1250,F1377,F1378,F1380,F1393,F1422A,F1423A,F1440A,F1582B,F1583B,F1584A,F1585A,F1586A,F1595,F1609,F1615A,F1617,F1617A,F1619,F1652,F1653,F1655,F1660,F1661,F1662,F1663,F1664,F1698,F1733,F1734,F1735,F1736,F1737,F1738,F1739,F1740,F1741,F1742,F1743,F1744,F1745,F1746,F1747,F1748,F1749,F1750,F1751,F1752,F1753,F1768,F1780,F1802,F1810,F1904,F1905,F1943,F1954,F1956,F1970,F1971,F1973,F1974,F1975,F1976,F1990,F1993,F2005,F2006,F2012,F2013,F2014,F2015,F2016,F2017,F2018,F2019,F2034,F2035,F2061,F2095,F2096,F2103,F2122,F2123,F2124,F2125,F2127,F2133,F2134,F2136,F2136A,F2137,F2139,F2141,F2161,F2163,F2164,F2171,F2172,F2182,F2185,F2186,F2200,F2208,F2209,F2216,F2232,F2234,F2235,F2242,F2251,F2270,F2271,F2309,F2314,F2331,F2332,F2334A,F2338,F2339,F2344,F2347,F2358,F2359,F2363,F2364,F2402,F2416,F2423,F2445,F2458,F2492,F2519,F2521,F2522,F2523,F2539,F2540,F2541,F2573,F2574,F2596,F2600,F2601,F2605,F2627,F2628,F2638,F2653,F2655,F2672,F2673,F2674,F2675,F2676,F2677,F2678,F2679,F2686,F2687,F2688,F2709,F2721,F2741,F2745,F2746,F2747,F2748,F2749,F2750,F2751,F2752,F2753,F2754,F2755,F2766,F2767,F2769,F2783,F2786,F2801,F2802,F2812,F2828,F2835,F2838,F2839,F2840,F2842,F2843,F2847,F2848,F2849,F2850,F2851,F2852,F2853,F2854,F2855,F2856,F2857,F2858,F2859,F2860,F2861,F2862,F2863,F2864,F2895,F2896,F2903,F2912,F2913,F2917,F2920,F2921,F2925,F2933,F2941,F2964,F2976,F2977,F2978,F2979,F2988,F2995,F2996,F2997,F2998,F2999,F3000,F3001,F3016,F3072,F3076,F3082,F3084,F3096,F3098,F3108,F3130,F3135,F3142,F3164,F3165,F3166,F3167,F3168,F3180,F3181,F3182,F3228,F3239,F3242,F3246,F3252,F3260,F3261,F3262,F3263,F3264,F3267,F3273,F3274,F3289,F3294,F3299,F3301,F3331,F3356,F3382,F3383,F3384,F3387,F3388,F3408,F3417,F3424,F3432,F3434,F3444,F3450,F3461,F3462,F3463,F3464,F3465,F3468,F3470,F3471,F3472,F3481,F3482,F3483,F3492,F3604,F3626,F3639,F3640,F3641,F3666,F3671,F3679,F3684,F3685,F3698,F3699,F3700,F3701,F3702,F3703,F3704,F3844,W0049,W0118,W0123,W0124,W0125,W0128&releaseId=S14OP"
+              target="_blank"
+              >Fiori Apps Library</a
+            >
+          </section>
+        </section>
+        <section>
+          <section>
+            <h4>Side-by-side Architektur</h4>
+            <img data-src="./bilder/Side-by-Side.png" />
+          </section>
+          <section>
+            <h4>Side-by-side Extension Application Layers</h4>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/ApplicationLayers.png"
+            />
+          </section>
+          <section>
+            <h4>SAP Cloud SDK & CAP</h4>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/SAP-Cloud-SDK.png"
+            />
+          </section>
+          <section>
+            <h4>SAP Business Technology Platform, ABAP Environment</h4>
+            <img
+              data-src="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/SAPCP-ABAP-Environment.png"
+            />
+          </section>
+          <section>
+            <h4>SAP Business Technology Platform Extension Factory</h4>
+            <img data-src="./bilder/Extension-Factory.png" />
+          </section>
+        </section>
+        <section>
+          <h2>Zusammenfassung</h2>
+          <ul>
+            <li class="fragment">"Keep the Core clean"</li>
+            <li class="fragment">
+              Soweit es geht mit Customizing und In-App-Erweiterungen auskommen
+            </li>
+            <li class="fragment">Side-by-Side Erweiterungen genau planen</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Vielen Dank</h2>
+          <h2>Ihre Fragen ...</h2>
+        </section>
+        <section>
+          <h2>Contact</h2>
+          <p style="text-align: left; margin-left: 5em">
+            Gregor Wolf,
+            <a href="https://computerservice-wolf.com/" target="_blank"
+              >Computerservice Wolf</a
+            ><br />
+            <a href="mailto:gregor@computerservice-wolf.com" target="_blank"
+              >gregor@computerservice-wolf.com</a
+            ><br />
+            Twitter:
+            <a href="https://twitter.com/wolf_gregor" target="_blank"
+              >@wolf_gregor</a
+            >
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Präsentation</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>Business Card</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img
+                    src="./bilder/QR-Code-Link-zu-den-Slides.png"
+                    alt="Link zur Präsentation"
+                    height="250px"
+                    class="plain"
+                  />
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                  <img
+                    src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png"
+                    alt="Business Card"
+                    height="250px"
+                    class="plain"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <section>
+            <h2>Links</h2>
+            <ul>
+              <li>
+                <a
+                  href="https://blogs.sap.com/2019/07/25/sap-s4hana-extensibility-a-learning-journey/"
+                  >SAP Community Blog Post: SAP S/4HANA Extensibility: A
+                  Learning Journey</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.sap.com/documents/2018/05/606d1ee8-037d-0010-87a3-c30de2ffd8ff.html?need_redirect_to_background_page=false"
+                  >Präsentation: S/4HANA In-App Extensibility Overview</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://help.sap.com/docs/ABAP_PLATFORM_NEW/ed0e11412f9841e7ac5cd9a6799368d4/82dc267d4b0b4b309b40c22f700fe5c2.html?locale=en-US"
+                  >help.sap.com: SAP S/4HANA 2022 Extensibility</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://extensibilityexplorer.cfapps.eu10.hana.ondemand.com/ExtensibilityExplorer/"
+                  >SAP Extensibility Explorer for SAP S/4HANA Cloud</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://developers.sap.com/group.abap-custom-ui-with-webide.html"
+                  >Tutorial Group: Create a Custom UI for S/4HANA Cloud</a
+                >
+              </li>
+              <li>
+                <a href="https://community.sap.com/topics/fiori/s4hana"
+                  >SAP Fiori for S/4HANA</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Links - SAP Business Technology Platform Extension Factory</h3>
+            <ul>
+              <li>
+                <a href="https://kyma-project.io/"
+                  >Basiert auf dem Open Source Projekt Kyma</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://help.sap.com/doc/43b304f99a8145809c78f292bfc0bc58/Cloud/en-US/98bf747111574187a7c76f8ced51cfeb.html"
+                  >What's New for SAP Business Technology Platform</a
+                >
+              </li>
+              <li>
+                <a href="https://open.sap.com/courses/kyma1/"
+                  >Weitere Details im OpenSAP Kurs: Kyma – A Flexible Way to
+                  Connect and Extend Applications</a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        progress: true,
+        history: true,
+        controlsLayout: "edges",
+        transition: "convex", // none/fade/slide/convex/concave/zoom
+        dependencies: [],
+      });
+    </script>
 
-		<div class="share-csw" style="position: absolute; bottom: 1em; left: 50%; margin-left: -39px; z-index: 20;">
-			<a class="share-csw-twitter" href="http://twitter.com/wolf_gregor" target="_blank">
-				<svg viewbox="0 0 2000 1625.36" width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
-					<path d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41" style="fill:#ffffff"/>
-				</svg>
-			</a>
+    <div
+      class="share-csw"
+      style="
+        position: absolute;
+        bottom: 1em;
+        left: 50%;
+        margin-left: -39px;
+        z-index: 20;
+      "
+    >
+      <a
+        class="share-csw-twitter"
+        href="http://twitter.com/wolf_gregor"
+        target="_blank"
+      >
+        <svg
+          viewbox="0 0 2000 1625.36"
+          width="22"
+          height="22"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41"
+            style="fill: #ffffff"
+          />
+        </svg>
+      </a>
 
-            <a class="share-csw-github" href="https://github.com/gregorwolf" target="_blank">
-				<img src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png" alt="GitHub" width="25px" height="25px">
-			</a>
+      <a
+        class="share-csw-github"
+        href="https://github.com/gregorwolf"
+        target="_blank"
+      >
+        <img
+          src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png"
+          alt="GitHub"
+          width="25px"
+          height="25px"
+        />
+      </a>
+    </div>
 
-        </div>
+    <style>
+      /* Social sharing */
+      .share-csw a {
+        display: inline-block;
+        height: 34px;
+        line-height: 32px;
+        padding: 5px 10px;
+        color: #fff;
+        font-family: Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
 
-		<style>
-			/* Social sharing */
-			.share-csw a {
-				display: inline-block;
-				height: 34px;
-				line-height: 32px;
-				padding: 5px 10px;
-				color: #fff;
-				font-family: Helvetica, sans-serif;
-				text-decoration: none;
-				font-weight: bold;
-				font-size: 12px;
-				vertical-align: top;
-				box-sizing: border-box;
-			}
-            
-            .share-csw-github {
-			}
+      .share-csw-github {
+      }
 
-			.share-csw {
-				line-height: 30px;
-			}
+      .share-csw {
+        line-height: 30px;
+      }
 
-			.share-csw svg img {
-				vertical-align: top;
-			}
+      .share-csw svg img {
+        vertical-align: top;
+      }
 
-			.share-csw a + a {
-				margin-bottom: 1em;
-			}
+      .share-csw a + a {
+        margin-bottom: 1em;
+      }
 
-			.share-csw-twitter {
-				background-color: #00aced;
-			}
+      .share-csw-twitter {
+        background-color: #00aced;
+      }
 
-            body:after {
-                background-image: url("bilder/contis-logo.png");
-                background-size: 214px 51px;
-                display: inline-block;
-                width: 214px; 
-                height: 51px;
-                content:"";
-            }
-		</style>
-        
-    </body>
+      body:after {
+        background-image: url("bilder/contis-logo.png");
+        background-size: 214px 51px;
+        display: inline-block;
+        width: 214px;
+        height: 51px;
+        content: "";
+      }
+    </style>
+  </body>
 </html>
