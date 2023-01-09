@@ -1,461 +1,697 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css" />
-        <!--
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css"
+    />
+    <!--
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css" />
         -->
-        <link rel="stylesheet" href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css" />
-        <title>UX2010 - Tips and Tricks for an Efficient Implementation of SAP Fiori</title>
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
-                <section>
-                    <p>Gregor Wolf</p>
-                    <h3>Tips and Tricks for an Efficient<br />
-                        Implementation of SAP Fiori<br />
-                        </h3>
-					<p>UX210, SAP TechEd 2016, Barcelona</p>
-                    <table>
-						<tr>
-							<td><a href="http://www.profes.de/" 
-								   target="_blank"><img src="../SAP-Fiori-effizient-einf%C3%BChren/images/profes-logo.png" 
-									 alt="Profes"
-									 height="250px"
-									 class="plain" /></a></td>
-							<td></td>
-							<td></td>
-							<td><a href="http://www.dsag.de/" 
-								   target="_blank"><img 
-									 src="./images/DSAG.png" 
-									 alt="DSAG Logo"
-									 height="280px"
-									 class="plain" /></a></td>
-						</tr>
-                    </table>
-                    <aside class="notes">
-                        For an efficient implementation of SAP Fiori, SAP provides different tools like the SAP Fiori apps reference library, 
-						SAP Fiori apps rapid-deployment solution (RDS), and more. Learn in this session the best practice for getting 
-						from zero to SAP Fiori in the most efficient way. Utilize task lists and the app activation tool. 
-						Extend SAP Gateway technology in the backend and the SAP Fiori app in SAP Web IDE. Join this presentation with additional live demos.
-                    </aside>
-                </section>
-                <section>
-                    <h2>Main phases of a<br />
-                        SAP Fiori Implementation</h2>
-                    <ul>
-                        <li>Explore</li>
-                        <li>Install</li>
-                        <li>Configure</li>
-                        <li>Extend</li>
-                        <li>Custom development</li>
-                    </ul>
-                </section>
-                <!-- Explore -->
-                <section>
-                    <section>
-                        <h2>Explore</h2>
-                        <p>Business Process Experts<br />
-                            <a href="https://www.sapfioritrial.com/" target="_blank">SAP Fiori, Demo Cloud Edition</a><br />
-                            <a href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/" target="_blank">SAP Fiori apps reference library</a>
-                        </p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Fiori-Demo-Cloud-Edition.png">
-                        <h3>SAP Fiori, Demo Cloud Edition</h3>
-                        <p>Business Process Experts</p>
-                        <ul>
-                            <li>Test SAP Fiori Apps live </li>
-                            <li>Also mobile using the SAP Fiori Client</li>
-                        </ul>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-Apps-Library-BPX.png">
-                        <h3>SAP Fiori apps reference library</h3>
-                        <p>Business Process Experts</p>
-                        <ul>
-                            <li>Filter by product, role, ...</li>
-                            <li>Screenshots</li>
-                            <li>Descriptions</li>
-                        </ul>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h2>Explore</h2>
-                        <p>SAP Architects<br />
-                            <a href="https://eaexplorer.hana.ondemand.com/" target="_blank">SAP Enterprise Architecture Explorer</a></p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-EA-Explorer.png">
-                        <h3>SAP Enterprise Architecture Explorer</h3>
-                        <p>SAP Architects</p>
-                        <ul>
-                            <li>SAP Landscape Deployment Recommendations</li>
-                            <li>Roadmaps</li>
-                            <li>Deployment options</li>
-                            <li>Pros and cons</li>
-                        </ul>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h2>Explore</h2>
-                        <p>Data privacy officer<br />
-                            <a href="https://launchpad.support.sap.com/#/notes/2183180/E" target="_blank">SAP Note 2183180 - SAP Cloud Security Framework</a></p>
-                    </section>
-                </section>
-				<section>
-                    <section>
-                        <h2>Explore</h2>
-                        <p>SAP Developer<br />
-                            <a href="https://www.sapfioritrial.com/" target="_blank">SAP Fiori, Demo Cloud Edition Extend</a><br />
-                            <a href="https://open.sap.com/courses/fiux2" target="_blank">openSAP course: Build Your Own SAP Fiori App in the Cloud</a><br />
-                            <a href="https://open.sap.com/courses/ui51" target="_blank">openSAP course: Developing Web Apps with SAPUI5</a><br />
-                            <a href="http://go.sap.com/developer/events.sap-codejam.html" target="_blank">SAP CodeJam: Gateway, SAPUI5, ABAP for HANA with Fiori</a>
-                            </p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Fiori-Demo-Cloud-Extend.png">
-                        <h3>SAP Fiori, Demo Cloud Edition</h3>
-                        <p>SAP Developer</p>
-                        <ul>
-                            <li>SAP Web IDE</li>
-                            <li>Extensions</li>
-                        </ul>
-                    </section>
-                </section>
-                <!-- Install -->
-                <section>
-                    <section>
-                        <h3>Install</h3>
-                        <p>SAP Administrator</p>
-                        <p><a href="https://rapid.sap.com/bp/#/RDS_FIORI" target="_blank">SAP Fiori apps rapid-deployment solution (RDS)</a><br />
-                        <a href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/" target="_blank">SAP Fiori apps reference library</a><br />
-                        Task Lists (Transaction STC01)</p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Fiori-apps-RDS.png">
-                        <h3>SAP Fiori apps <br />
-                            rapid-deployment solution (RDS)</h3>
-                        <p>SAP Administrator</p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-Apps-Library-Admin.png">
-                        <h3>SAP Fiori apps reference library</h3>
-                        <p>SAP Administrator</p>
-                        <ul>
-                            <li>Agregated information</li>
-                            <li>Download ICF Nodes and OData Services<br />for Task Lists</li>
-                            <li>Launch SAP Maintenance Planner</li>
-                            <li>Links to SAP Notes</li>
-                        </ul>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Maintenance-Planner.png">
-                        <h3>SAP Maintenance Planner</h3>
-                        <p>SAP Administrator</p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/STC01.png">
-                        <h3>Task Lists (STC01)</h3>
-                        <p>Activation</p>
-                        <table>
-							<tr>
-								<th>Task List</th>
-								<th>Functionality</th>
-							</tr>
-							<tr>
-								<td>SAP_GATEWAY_BASIC_CONFIG</td>
-								<td>SAP Gateway</td>
-							</tr>
-							<tr>
-								<td>SAP_FIORI_LAUNCHPAD_INIT_SETUP</td>
-								<td>Launchpad</td>
-							</tr>
-							<tr>
-								<td>SAP_GATEWAY_ACTIVATE_ODATA_SERV</td>
-								<td nowrap>OData Services</td>
-							</tr>
-							<tr>
-								<td>SAP_BASIS_ACTIVATE_ICF_NODES</td>
-								<td>ICF Services</td>
-							</tr>
-                        </table>
-                    </section>
-                </section>
-                <!-- Configure -->
-                <section>
-                    <section>
-                        <h3>Configure</h3>
-                        <p>SAP Functional Consultant</p>
-                        <p><a href="https://rapid.sap.com/bp/#/browse/packageversions/RDS_FIORI" target="_blank">RDS -> Launchpad Operation (EE3)</a><br />
-                        <a href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/" target="_blank">SAP Fiori apps reference library</a></p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-App-configuration.png">
-                        <h3>SAP Fiori apps reference library</h3>
-                        <p>SAP Functional Consultant</p>
-                        <ul>
-                            <li>Requied Backend Customizing</li>
-                            <li>Standard PFCG user roles</li>
-                            <li>Links to SAP Notes</li>
-                        </ul>
-                    </section>
-                </section>
-                <!-- Extend -->
-                <section>
-                    <section>
-                        <h3>Extend</h3>
-                        <p>SAP Administrator<br />
-                        <p>
-                            <a href="https://tools.hana.ondemand.com/#cloud" target="_blank">SAP Cloud Connector</a><br />
-                            <a href="https://hana.ondemand.com/" target="_blank">SAP Business Technology Platform Cockpit</a>
-                        </p>
-                        <p>SAP Developer</p>
-                        <p>
-                            <a href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/" target="_blank">SAP Fiori apps reference library</a><br />
-                            SAP Gateway Service Builder (SEGW)<br />
-                            SAP Business Technology Platform, Web IDE<br />
-							<a href="https://tools.hana.ondemand.com/#sapui5">SAP Web IDE personal edition</a>
-                        </p>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-HANA-Cloud-Connector.png">
-                        <h3>SAP Cloud Connector</h3>
-                        <p>SAP Administrator</p>
-                        <ul>
-                            <li>Encrypted connection to the SAP Business Technology Platform</li>
-                            <li>Access control list for hosts and services</li>
-                            <li>Single Sign On using the Cloud authentication using Principle Propagation</li>
-                            <li>Protocols (HCP to on-premise): HTTP, HTTPS, RFC</li>
-                            <li>Protocols (on-premise to HCP): JDBC, ODBC</li>
-                        </ul>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-HANA-Cloud-Platform-Cockpit.png">
-                        <h3>SAP Business Technology Platform Cockpit</h3>
-                        <p>SAP Administrator</p>
-                        <ul>
-                            <li>on-premise connection</li>
-                            <li>Provisioning of Developers</li>
-                        </ul>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-Extension.png">
-                        <h3>SAP Fiori apps reference library</h3>
-                        <p>SAP Developer</p>
-                        <ul>
-                            <li>Links to extension documentation</li>
-                            <li>ABAP structures that can be extended using appends</li>
-                            <li>BAdI's to fill extended structures</li>
-                        </ul>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SEGW.png">
-                        <h3>SAP Gateway Service Builder (SEGW)</h3>
-                        <p>SAP Developer</p>
-                        <ul>
-                            <li>Extension of SAP Standard OData Services</li>
-                            <li>Development of custom OData Services</li>
-                        </ul>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Web-IDE.png">
-                        <h3>SAP Web IDE</h3>
-                        <p>SAP Developer</p>
-                        <ul>
-                            <li>Cloud based development environment</li>
-                            <li>Extensibility Pane</li>
-                            <li>Code completion</li>
-                            <li>Version control using Git (also on-premise)</li>
-                            <li>Support for SAP Hybrid App Toolkit</li>
-                            <li>New functionality each month</li>
-                        </ul>
-                    </section>
-                    <section data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Web-IDE.png">
-                        <h3>SAP Web IDE personal edition</h3>
-                        <p>SAP Developer</p>
-                        <ul>
-                            <li>Local installation</li>
-                            <li>Limited number of templates</li>
-                            <li>No support for SAP Hybrid App Toolkit</li>
-                            <li>Requires HCP SAP Web IDE license</li>
-                        </ul>
-                    </section>
-                </section>
-                <!-- Custom development -->
-                <section>
-                    <section>
-                        <h3>Custom development</h3>
-                        <p>Business Process Experts</p>
-                        <p>
-                            <a href="https://experience.sap.com/fiori-design/" target="_blank">SAP Fiori Design Guidelines</a><br />
-                            <a href="https://www.experiencesplash.com/" target="_blank">Splash and Build</a>
-                        </p>
-                        <p>SAP Developer</p>
-                        <p>
-                            <a href="http://scn.sap.com/community/developer-center/front-end" target="_blank">SCN</a><br />
-                            <a href="http://stackoverflow.com/search?q=openui5%20or%20sapui5" target="_blank">StackOverflow</a><br />
-                            <a href="http://slackui5invite.herokuapp.com/" target="_blank">Slack</a>
-                        </p>
-                    </section>
-                    <section data-background="./images/BUILD.png">
-                        <h3>BUILD</h3>
-                        <p>Business Process Experts</p>
-                        <ul>
-                            <li>Prototype</li>
-                            <li>Feedback</li>
-                            <li>SAP Web IDE Export</li>
-                        </ul>
-                    </section>
-                </section>
-                <!-- Ausrollen -->
-                <!-- Zusammenfassung -->
-                <section>
-                    <h2>Key take aways</h2>
-                    <ul>
-                        <li>openSAP couses and SAP CodeJams to educate your developes</li>
-                        <li>SAP Fiori apps reference library to explore, install, configure and extend</li>
-                        <li>SAP Fiori apps rapid-deployment solution (RDS) for detailed information</li>
-                        <li>SAP Task Lists (STC01) for a quick activation of the Launchpad and Apps</li>
-                    </ul>
-                </section>
-                <!-- Contact -->
-                <section>
-                    <h2>Contact</h2>
-                    <p style="text-align: left; margin-left:5em">
-                        Gregor Wolf, 
-                        <a href="https://computerservice-wolf.com/" target="_blank">Computerservice Wolf</a><br />
-                        <a href="mailto:gregor@computerservice-wolf.com" target="_blank">gregor@computerservice-wolf.com</a><br />
-                        <a href="https://twitter.com/wolf_gregor" target="_blank">@wolf_gregor</a>
-                    </p>
-                    <table>
-						<tr>
-							<th>Presentation</th>
-							<th>&nbsp;</th>
-							<th>&nbsp;</th>
-							<th>Business Card</th>
-						</tr>
-						<tr>
-							<td><img src="./images/qrcode-link-to-presentation.png" 
-									 alt="Link to the presentation"
-									 height="250px"
-									 class="plain" /></td>
-							<td></td>
-							<td></td>
-							<td><img src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png" 
-									 alt="Business Card"
-									 height="250px"
-									 class="plain" /></td>
-						</tr>
-                    </table>
-                </section>
-                <section>
-                    <section>
-                        <h2>Additional information</h2>
-                    </section>
-                    <section>
-                        <h3>SAP Fiori Community</h3>
-                        <h4>SAP Fiori Technology Feedback Council (SAP Jam)</h4>
-                        <p>To get access please contact:<br />
-                        Jeremy.Good at sap.com and Aviad.Rivlin at sap.com</p>
-                        <h4><a href="https://blogs.sap.com/2015/01/14/maximize-your-investment-in-sap-fiori-free-practitioners-forum-best-practices/" target="_blank">SAP Fiori Practitioners Forum (SAP Jam)</a></h4>
-                        <h4><a href="https://experience.sap.com/news/sap-fiori-makers/" target="_blank">SAP Fiori Makers</a></h4>
-                        <h4><a href="https://www.meetup.com/find/?allMeetups=false&keywords=SAP+Fiori&radius=Infinity" target="_blank">Meetups</a></h4>
-                        <h4><a href="https://events.sap.com/teched/en/session/41243" target="_blank">LT144 - SAP Fiori 3, 2018 Las Vegas</a></h4>
-                    </section>
-                    <section>
-                        <h3>SAP Fiori Client</h3>
-                        <p>Functionality:</p>
-                        <ul>
-                            <li>Access native functions like (e.g. Camera, Barcode-Scanner, ...)</li>
-                            <li>better management of the  local Web-Cache</li>
-                            <li>additional protection of the app regarding unauthorized access</li>
-                            <li>User certificate provisioning using Mobile Secure and SAP Mobile Platform</li>
-                        </ul>
-                        <p>Download:</p>
-                        <p>
-                        <a href="https://www.microsoft.com/de-de/store/apps/sap-fiori-client/9wzdncrd2c40" target="_blank">Windows 10</a> |
-                        <a href="https://itunes.apple.com/de/app/sap-fiori-client/id824997258?mt=8" target="_blank">iOS</a> |
-                        <a href="https://play.google.com/store/apps/details?id=com.sap.fiori.client" target="_blank">Android</a>
-                        </p>
-                    </section>
-                    <section>
-                        <h3>SAP Fiori Launchpad</h3>
-                        <p>Implementation options:</p>
-                        <ul>
-                            <li>SAP NetWeaver ABAP</li>
-                            <li>SAP Portal (Java)</li>
-                            <li>SAP Business Technology Platform</li>
-                        </ul>                        
-                    </section>
-                    <section>
-                        <h3>SAP Fiori Elements (Smart Templates)</h3>
-                        <p>Available</p>
-                        <ul>
-                            <li>Overview Page</li>
-                            <li>List Report</li>
-                            <li>Object Page</li>
-                        </ul>
-                        <p>Additional facts</p>
-                        <ul>
-                            <li>SAP_UI 7.50 can be installed on NetWeaver ABAP 7.40</li>
-                            <li>On NetWeaver ABAP 7.40 Annotation XML must be created manually</li>
-                            <li>CDS Views can be used on AnyDB</li>
-                        </ul>
-						<p><a href="https://github.com/gregorwolf/FioriElementsDemo">Fiori Elements Demo App on GitHub</a></p>
-                    </section>
-                </section>                
-            </div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
-        <script>
-            Reveal.initialize({
-                // Display the page number of the current slide
-                slideNumber: true,
-                progress: true,
-				history: true,
-                dependencies: []
-            });
-        </script>
+    <link
+      rel="stylesheet"
+      href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css"
+    />
+    <title>
+      UX2010 - Tips and Tricks for an Efficient Implementation of SAP Fiori
+    </title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <p>Gregor Wolf</p>
+          <h3>
+            Tips and Tricks for an Efficient<br />
+            Implementation of SAP Fiori<br />
+          </h3>
+          <p>UX210, SAP TechEd 2016, Barcelona</p>
+          <table>
+            <tr>
+              <td>
+                <a href="http://www.profes.de/" target="_blank"
+                  ><img
+                    src="../SAP-Fiori-effizient-einf%C3%BChren/images/profes-logo.png"
+                    alt="Profes"
+                    height="250px"
+                    class="plain"
+                /></a>
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                <a href="http://www.dsag.de/" target="_blank"
+                  ><img
+                    src="./images/DSAG.png"
+                    alt="DSAG Logo"
+                    height="280px"
+                    class="plain"
+                /></a>
+              </td>
+            </tr>
+          </table>
+          <aside class="notes">
+            For an efficient implementation of SAP Fiori, SAP provides different
+            tools like the SAP Fiori apps reference library, SAP Fiori apps
+            rapid-deployment solution (RDS), and more. Learn in this session the
+            best practice for getting from zero to SAP Fiori in the most
+            efficient way. Utilize task lists and the app activation tool.
+            Extend SAP Gateway technology in the backend and the SAP Fiori app
+            in SAP Web IDE. Join this presentation with additional live demos.
+          </aside>
+        </section>
+        <section>
+          <h2>
+            Main phases of a<br />
+            SAP Fiori Implementation
+          </h2>
+          <ul>
+            <li>Explore</li>
+            <li>Install</li>
+            <li>Configure</li>
+            <li>Extend</li>
+            <li>Custom development</li>
+          </ul>
+        </section>
+        <!-- Explore -->
+        <section>
+          <section>
+            <h2>Explore</h2>
+            <p>
+              Business Process Experts<br />
+              <a href="https://www.sapfioritrial.com/" target="_blank"
+                >SAP Fiori, Demo Cloud Edition</a
+              ><br />
+              <a
+                href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/"
+                target="_blank"
+                >SAP Fiori apps reference library</a
+              >
+            </p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Fiori-Demo-Cloud-Edition.png"
+          >
+            <h3>SAP Fiori, Demo Cloud Edition</h3>
+            <p>Business Process Experts</p>
+            <ul>
+              <li>Test SAP Fiori Apps live</li>
+              <li>Also mobile using the SAP Fiori Client</li>
+            </ul>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-Apps-Library-BPX.png"
+          >
+            <h3>SAP Fiori apps reference library</h3>
+            <p>Business Process Experts</p>
+            <ul>
+              <li>Filter by product, role, ...</li>
+              <li>Screenshots</li>
+              <li>Descriptions</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Explore</h2>
+            <p>
+              SAP Architects<br />
+              <a href="https://eaexplorer.hana.ondemand.com/" target="_blank"
+                >SAP Enterprise Architecture Explorer</a
+              >
+            </p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-EA-Explorer.png"
+          >
+            <h3>SAP Enterprise Architecture Explorer</h3>
+            <p>SAP Architects</p>
+            <ul>
+              <li>SAP Landscape Deployment Recommendations</li>
+              <li>Roadmaps</li>
+              <li>Deployment options</li>
+              <li>Pros and cons</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Explore</h2>
+            <p>
+              Data privacy officer<br />
+              <a
+                href="https://launchpad.support.sap.com/#/notes/2183180/E"
+                target="_blank"
+                >SAP Note 2183180 - SAP Cloud Security Framework</a
+              >
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Explore</h2>
+            <p>
+              SAP Developer<br />
+              <a href="https://www.sapfioritrial.com/" target="_blank"
+                >SAP Fiori, Demo Cloud Edition Extend</a
+              ><br />
+              <a href="https://open.sap.com/courses/fiux2" target="_blank"
+                >openSAP course: Build Your Own SAP Fiori App in the Cloud</a
+              ><br />
+              <a href="https://open.sap.com/courses/ui51" target="_blank"
+                >openSAP course: Developing Web Apps with SAPUI5</a
+              ><br />
+              <a
+                href="http://go.sap.com/developer/events.sap-codejam.html"
+                target="_blank"
+                >SAP CodeJam: Gateway, SAPUI5, ABAP for HANA with Fiori</a
+              >
+            </p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Fiori-Demo-Cloud-Extend.png"
+          >
+            <h3>SAP Fiori, Demo Cloud Edition</h3>
+            <p>SAP Developer</p>
+            <ul>
+              <li>SAP Web IDE</li>
+              <li>Extensions</li>
+            </ul>
+          </section>
+        </section>
+        <!-- Install -->
+        <section>
+          <section>
+            <h3>Install</h3>
+            <p>SAP Administrator</p>
+            <p>
+              <a href="https://rapid.sap.com/bp/#/RDS_FIORI" target="_blank"
+                >SAP Fiori apps rapid-deployment solution (RDS)</a
+              ><br />
+              <a
+                href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/"
+                target="_blank"
+                >SAP Fiori apps reference library</a
+              ><br />
+              Task Lists (Transaction STC01)
+            </p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Fiori-apps-RDS.png"
+          >
+            <h3>
+              SAP Fiori apps <br />
+              rapid-deployment solution (RDS)
+            </h3>
+            <p>SAP Administrator</p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-Apps-Library-Admin.png"
+          >
+            <h3>SAP Fiori apps reference library</h3>
+            <p>SAP Administrator</p>
+            <ul>
+              <li>Agregated information</li>
+              <li>Download ICF Nodes and OData Services<br />for Task Lists</li>
+              <li>Launch SAP Maintenance Planner</li>
+              <li>Links to SAP Notes</li>
+            </ul>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Maintenance-Planner.png"
+          >
+            <h3>SAP Maintenance Planner</h3>
+            <p>SAP Administrator</p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/STC01.png"
+          >
+            <h3>Task Lists (STC01)</h3>
+            <p>Activation</p>
+            <table>
+              <tr>
+                <th>Task List</th>
+                <th>Functionality</th>
+              </tr>
+              <tr>
+                <td>SAP_GATEWAY_BASIC_CONFIG</td>
+                <td>SAP Gateway</td>
+              </tr>
+              <tr>
+                <td>SAP_FIORI_LAUNCHPAD_INIT_SETUP</td>
+                <td>Launchpad</td>
+              </tr>
+              <tr>
+                <td>SAP_GATEWAY_ACTIVATE_ODATA_SERV</td>
+                <td nowrap>OData Services</td>
+              </tr>
+              <tr>
+                <td>SAP_BASIS_ACTIVATE_ICF_NODES</td>
+                <td>ICF Services</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+        <!-- Configure -->
+        <section>
+          <section>
+            <h3>Configure</h3>
+            <p>SAP Functional Consultant</p>
+            <p>
+              <a
+                href="https://rapid.sap.com/bp/#/browse/packageversions/RDS_FIORI"
+                target="_blank"
+                >RDS -> Launchpad Operation (EE3)</a
+              ><br />
+              <a
+                href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/"
+                target="_blank"
+                >SAP Fiori apps reference library</a
+              >
+            </p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-App-configuration.png"
+          >
+            <h3>SAP Fiori apps reference library</h3>
+            <p>SAP Functional Consultant</p>
+            <ul>
+              <li>Requied Backend Customizing</li>
+              <li>Standard PFCG user roles</li>
+              <li>Links to SAP Notes</li>
+            </ul>
+          </section>
+        </section>
+        <!-- Extend -->
+        <section>
+          <section>
+            <h3>Extend</h3>
+            <p>SAP Administrator<br /></p>
+            <p>
+              <a href="https://tools.hana.ondemand.com/#cloud" target="_blank"
+                >SAP Cloud Connector</a
+              ><br />
+              <a href="https://hana.ondemand.com/" target="_blank"
+                >SAP Business Technology Platform Cockpit</a
+              >
+            </p>
+            <p>SAP Developer</p>
+            <p>
+              <a
+                href="https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/"
+                target="_blank"
+                >SAP Fiori apps reference library</a
+              ><br />
+              SAP Gateway Service Builder (SEGW)<br />
+              SAP Business Technology Platform, Web IDE<br />
+              <a href="https://tools.hana.ondemand.com/#sapui5"
+                >SAP Web IDE personal edition</a
+              >
+            </p>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-HANA-Cloud-Connector.png"
+          >
+            <h3>SAP Cloud Connector</h3>
+            <p>SAP Administrator</p>
+            <ul>
+              <li>
+                Encrypted connection to the SAP Business Technology Platform
+              </li>
+              <li>Access control list for hosts and services</li>
+              <li>
+                Single Sign On using the Cloud authentication using Principle
+                Propagation
+              </li>
+              <li>Protocols (HCP to on-premise): HTTP, HTTPS, RFC</li>
+              <li>Protocols (on-premise to HCP): JDBC, ODBC</li>
+            </ul>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-HANA-Cloud-Platform-Cockpit.png"
+          >
+            <h3>SAP Business Technology Platform Cockpit</h3>
+            <p>SAP Administrator</p>
+            <ul>
+              <li>on-premise connection</li>
+              <li>Provisioning of Developers</li>
+            </ul>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/Fiori-Extension.png"
+          >
+            <h3>SAP Fiori apps reference library</h3>
+            <p>SAP Developer</p>
+            <ul>
+              <li>Links to extension documentation</li>
+              <li>ABAP structures that can be extended using appends</li>
+              <li>BAdI's to fill extended structures</li>
+            </ul>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SEGW.png"
+          >
+            <h3>SAP Gateway Service Builder (SEGW)</h3>
+            <p>SAP Developer</p>
+            <ul>
+              <li>Extension of SAP Standard OData Services</li>
+              <li>Development of custom OData Services</li>
+            </ul>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Web-IDE.png"
+          >
+            <h3>SAP Web IDE</h3>
+            <p>SAP Developer</p>
+            <ul>
+              <li>Cloud based development environment</li>
+              <li>Extensibility Pane</li>
+              <li>Code completion</li>
+              <li>Version control using Git (also on-premise)</li>
+              <li>Support for SAP Hybrid App Toolkit</li>
+              <li>New functionality each month</li>
+            </ul>
+          </section>
+          <section
+            data-background="../SAP-Fiori-effizient-einf%C3%BChren/images/SAP-Web-IDE.png"
+          >
+            <h3>SAP Web IDE personal edition</h3>
+            <p>SAP Developer</p>
+            <ul>
+              <li>Local installation</li>
+              <li>Limited number of templates</li>
+              <li>No support for SAP Hybrid App Toolkit</li>
+              <li>Requires HCP SAP Web IDE license</li>
+            </ul>
+          </section>
+        </section>
+        <!-- Custom development -->
+        <section>
+          <section>
+            <h3>Custom development</h3>
+            <p>Business Process Experts</p>
+            <p>
+              <a href="https://experience.sap.com/fiori-design/" target="_blank"
+                >SAP Fiori Design Guidelines</a
+              ><br />
+              <a href="https://www.experiencesplash.com/" target="_blank"
+                >Splash and Build</a
+              >
+            </p>
+            <p>SAP Developer</p>
+            <p>
+              <a
+                href="http://scn.sap.com/community/developer-center/front-end"
+                target="_blank"
+                >SCN</a
+              ><br />
+              <a
+                href="http://stackoverflow.com/search?q=openui5%20or%20sapui5"
+                target="_blank"
+                >StackOverflow</a
+              ><br />
+              <a href="http://slackui5invite.herokuapp.com/" target="_blank"
+                >Slack</a
+              >
+            </p>
+          </section>
+          <section data-background="./images/BUILD.png">
+            <h3>BUILD</h3>
+            <p>Business Process Experts</p>
+            <ul>
+              <li>Prototype</li>
+              <li>Feedback</li>
+              <li>SAP Web IDE Export</li>
+            </ul>
+          </section>
+        </section>
+        <!-- Ausrollen -->
+        <!-- Zusammenfassung -->
+        <section>
+          <h2>Key take aways</h2>
+          <ul>
+            <li>openSAP couses and SAP CodeJams to educate your developes</li>
+            <li>
+              SAP Fiori apps reference library to explore, install, configure
+              and extend
+            </li>
+            <li>
+              SAP Fiori apps rapid-deployment solution (RDS) for detailed
+              information
+            </li>
+            <li>
+              SAP Task Lists (STC01) for a quick activation of the Launchpad and
+              Apps
+            </li>
+          </ul>
+        </section>
+        <!-- Contact -->
+        <section>
+          <h2>Contact</h2>
+          <p style="text-align: left; margin-left: 5em">
+            Gregor Wolf,
+            <a href="https://computerservice-wolf.com/" target="_blank"
+              >Computerservice Wolf</a
+            ><br />
+            <a href="mailto:gregor@computerservice-wolf.com" target="_blank"
+              >gregor@computerservice-wolf.com</a
+            ><br />
+            <a href="https://twitter.com/wolf_gregor" target="_blank"
+              >@wolf_gregor</a
+            >
+          </p>
+          <table>
+            <tr>
+              <th>Presentation</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>Business Card</th>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  src="./images/qrcode-link-to-presentation.png"
+                  alt="Link to the presentation"
+                  height="250px"
+                  class="plain"
+                />
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                <img
+                  src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png"
+                  alt="Business Card"
+                  height="250px"
+                  class="plain"
+                />
+              </td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <section>
+            <h2>Additional information</h2>
+          </section>
+          <section>
+            <h3>SAP Fiori Community</h3>
+            <h4>SAP Fiori Technology Feedback Council (SAP Jam)</h4>
+            <p>
+              To get access please contact:<br />
+              Jeremy.Good at sap.com and Aviad.Rivlin at sap.com
+            </p>
+            <h4>
+              <a
+                href="https://blogs.sap.com/2015/01/14/maximize-your-investment-in-sap-fiori-free-practitioners-forum-best-practices/"
+                target="_blank"
+                >SAP Fiori Practitioners Forum (SAP Jam)</a
+              >
+            </h4>
+            <h4>
+              <a
+                href="https://experience.sap.com/news/sap-fiori-makers/"
+                target="_blank"
+                >SAP Fiori Makers</a
+              >
+            </h4>
+            <h4>
+              <a
+                href="https://www.meetup.com/find/?allMeetups=false&keywords=SAP+Fiori&radius=Infinity"
+                target="_blank"
+                >Meetups</a
+              >
+            </h4>
+            <h4>
+              <a
+                href="https://events.sap.com/teched/en/session/41243"
+                target="_blank"
+                >LT144 - SAP Fiori 3, 2018 Las Vegas</a
+              >
+            </h4>
+          </section>
+          <section>
+            <h3>SAP Fiori Client</h3>
+            <p>Functionality:</p>
+            <ul>
+              <li>
+                Access native functions like (e.g. Camera, Barcode-Scanner, ...)
+              </li>
+              <li>better management of the local Web-Cache</li>
+              <li>
+                additional protection of the app regarding unauthorized access
+              </li>
+              <li>
+                User certificate provisioning using Mobile Secure and SAP Mobile
+                Platform
+              </li>
+            </ul>
+            <p>Download:</p>
+            <p>
+              <a
+                href="https://www.microsoft.com/de-de/store/apps/sap-fiori-client/9wzdncrd2c40"
+                target="_blank"
+                >Windows 10</a
+              >
+              |
+              <a
+                href="https://itunes.apple.com/de/app/sap-fiori-client/id824997258?mt=8"
+                target="_blank"
+                >iOS</a
+              >
+              |
+              <a
+                href="https://play.google.com/store/apps/details?id=com.sap.fiori.client"
+                target="_blank"
+                >Android</a
+              >
+            </p>
+          </section>
+          <section>
+            <h3>SAP Fiori Launchpad</h3>
+            <p>Implementation options:</p>
+            <ul>
+              <li>SAP NetWeaver ABAP</li>
+              <li>SAP Portal (Java)</li>
+              <li>SAP Business Technology Platform</li>
+            </ul>
+          </section>
+          <section>
+            <h3>SAP Fiori Elements (Smart Templates)</h3>
+            <p>Available</p>
+            <ul>
+              <li>Overview Page</li>
+              <li>List Report</li>
+              <li>Object Page</li>
+            </ul>
+            <p>Additional facts</p>
+            <ul>
+              <li>SAP_UI 7.50 can be installed on NetWeaver ABAP 7.40</li>
+              <li>
+                On NetWeaver ABAP 7.40 Annotation XML must be created manually
+              </li>
+              <li>CDS Views can be used on AnyDB</li>
+            </ul>
+            <p>
+              <a href="https://github.com/gregorwolf/FioriElementsDemo"
+                >Fiori Elements Demo App on GitHub</a
+              >
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        progress: true,
+        history: true,
+        dependencies: [],
+      });
+    </script>
 
-		<div class="share-csw" style="position: absolute; bottom: 1em; left: 50%; margin-left: -39px; z-index: 20;">
-			<a class="share-csw-twitter" href="http://twitter.com/wolf_gregor" target="_blank">
-				<svg viewbox="0 0 2000 1625.36" width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
-					<path d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41" style="fill:#ffffff"/>
-				</svg>
-			</a>
+    <div
+      class="share-csw"
+      style="
+        position: absolute;
+        bottom: 1em;
+        left: 50%;
+        margin-left: -39px;
+        z-index: 20;
+      "
+    >
+      <a
+        class="share-csw-twitter"
+        href="http://twitter.com/wolf_gregor"
+        target="_blank"
+      >
+        <svg
+          viewbox="0 0 2000 1625.36"
+          width="22"
+          height="22"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41"
+            style="fill: #ffffff"
+          />
+        </svg>
+      </a>
 
-            <a class="share-csw-github" href="https://github.com/gregorwolf" target="_blank">
-				<img src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png" alt="GitHub" width="25px" height="25px">
-			</a>
+      <a
+        class="share-csw-github"
+        href="https://github.com/gregorwolf"
+        target="_blank"
+      >
+        <img
+          src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png"
+          alt="GitHub"
+          width="25px"
+          height="25px"
+        />
+      </a>
+    </div>
 
-        </div>
+    <style>
+      /* Social sharing */
+      .share-csw a {
+        display: inline-block;
+        height: 34px;
+        line-height: 32px;
+        padding: 5px 10px;
+        color: #fff;
+        font-family: Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
 
-		<style>
-			/* Social sharing */
-			.share-csw a {
-				display: inline-block;
-				height: 34px;
-				line-height: 32px;
-				padding: 5px 10px;
-				color: #fff;
-				font-family: Helvetica, sans-serif;
-				text-decoration: none;
-				font-weight: bold;
-				font-size: 12px;
-				vertical-align: top;
-				box-sizing: border-box;
-			}
-            
-            .share-csw-github {
-			}
+      .share-csw-github {
+      }
 
-			.share-csw {
-				line-height: 30px;
-			}
+      .share-csw {
+        line-height: 30px;
+      }
 
-			.share-csw svg img {
-				vertical-align: top;
-			}
+      .share-csw svg img {
+        vertical-align: top;
+      }
 
-			.share-csw a + a {
-				margin-bottom: 1em;
-			}
+      .share-csw a + a {
+        margin-bottom: 1em;
+      }
 
-			.share-csw-twitter {
-				background-color: #00aced;
-			}
-		</style>
-        
-    </body>
+      .share-csw-twitter {
+        background-color: #00aced;
+      }
+    </style>
+  </body>
 </html>
