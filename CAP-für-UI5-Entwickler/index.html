@@ -49,7 +49,11 @@
           </p>
         </section>
         <section>
-          <h3>Aus Capire der CAP Dokumentation (https://cap.cloud.sap/)</h3>
+          <h3>
+            Aus Capire der CAP Dokumentation (<a href="https://cap.cloud.sap/"
+              >https://cap.cloud.sap/</a
+            >)
+          </h3>
           <p>
             Das SAP Cloud Application Programming Model (CAP) ist ein Framework
             von Sprachen, Bibliotheken und Werkzeugen für die Entwicklung von
@@ -85,7 +89,8 @@
               <tr>
                 <td>Untersützung für bestimmte Entwicklungsumgebungen</td>
                 <td>
-                  Mit @sap/cds-dk für die Untersützung anderer Editor und IDE's
+                  Mit @sap/cds-dk für die Untersützung anderer Editoren und
+                  IDE's
                 </td>
               </tr>
             </tbody>
@@ -188,89 +193,147 @@
           </p>
         </section>
         <section>
-          <h2>Anforderung</h2>
-          <p>
-            Self Service funktion zur<br />
-            Abfrage und Pflege von<br />
-            Kundenmaterialien.
-          </p>
+          <section>
+            <h2>Anforderung</h2>
+            <p>
+              Self Service zur Abfrage<br />
+              von Kundenmaterialien<br />
+              aus SAP S/4HANA.
+            </p>
+          </section>
+          <section>
+            <h2>Vorbereitung</h2>
+            <p>APIs auf api.sap.com testen:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://api.sap.com/api/API_CUSTOMER_MATERIAL_SRV/overview"
+                  >API_CUSTOMER_MATERIAL_SRV</a
+                >
+              </li>
+              <li>
+                <a href="https://api.sap.com/api/API_PRODUCT_SRV/overview"
+                  >API_PRODUCT_SRV</a
+                >
+              </li>
+            </ul>
+          </section>
         </section>
         <section>
-          <h2>Auf geht's</h2>
-          <p>
-            <img
-              src="../CAP-for-ABAPers/images/SAPBusinessApplicationStudio_logo.png"
-              alt="BAS"
-              class="plain"
-            />
-          </p>
-          <p>im SAP Business Application Studio</p>
+          <section>
+            <h2>Auf geht's</h2>
+            <p>
+              <img
+                src="../CAP-for-ABAPers/images/SAPBusinessApplicationStudio_logo.png"
+                alt="BAS"
+                class="plain"
+              />
+            </p>
+            <p>
+              im SAP Business Application Studio<br />
+              oder in VS Code
+            </p>
+          </section>
+          <section>
+            <h2>CAP Projekt initialisieren</h2>
+            <p>cds init &lt;Projektname&gt;</p>
+          </section>
+          <section>
+            <h2>OData Definitionen importieren</h2>
+            <p>cds import &lt;EDMX Datei&gt; --keep-namespace --as cds</p>
+          </section>
+          <section>
+            <h2>OData Definitionen importieren</h2>
+            <p>cds watch</p>
+          </section>
         </section>
         <section>
           <h3>Tips & Tricks</h3>
           <ul>
             <li>Verwendet möglichst schnell das aktuelle CAP Release</li>
-            <li>Verwendet die aktuelle Node.JS LTS</li>
-            <li>
-              CAP Tutorials
-              <ul>
-                <li>
-                  <a
-                    href="https://developers.sap.com/tutorial-navigator.html?tag=software-product-function%3Asap-cloud-application-programming-model&tag=tutorial%3Atype%2Fmission"
-                    >Missions</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              Beispiele der SAP
-              <ul>
-                <li>
-                  <a href="https://github.com/SAP-samples/cloud-cap-samples"
-                    >CAP Node.JS</a
-                  >
-                </li>
-                <li>
-                  <a href="https://github.com/SAP-samples/cap-sflight"
-                    >CAP SFLIGHT für Node.JS und Java</a
-                  >
-                </li>
-              </ul>
-            </li>
+            <li>Verwendet die aktuelle Node.JS LTS Version</li>
+            <li>Testautomatisierung im Backend und Frontend</li>
+            <li>CI/CD</li>
           </ul>
         </section>
         <section>
-          <h3>Links</h3>
-          <ul>
-            <li>
-              <a href="https://cap.cloud.sap/"
-                >capire - die offizielle CAP Dokumentation</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://developers.sap.com/tutorials/appstudio-onboarding.html"
-                >Set Up SAP Business Application Studio for Development</a
-              >
-            </li>
-            <li>
-              <a href="https://open.sap.com/courses/cp7"
-                >OpenSAP Course: Building Applications with SAP Cloud
-                Application Programming Model</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://answers.sap.com/tags/9f13aee1-834c-4105-8e43-ee442775e5ce"
-                >SAP Community CAP Q&A</a
-              >
-            </li>
-            <li>
-              <a href="https://sapmentors.github.io/reCAP/"
-                >re>≡CAP Conference</a
-              >
-            </li>
-          </ul>
+          <section>
+            <h3>Links</h3>
+            <ul>
+              <li>
+                <a href="https://cap.cloud.sap/"
+                  >capire - die offizielle CAP Dokumentation</a
+                >
+              </li>
+              <li>
+                CAP Tutorials
+                <ul>
+                  <li>
+                    <a
+                      href="https://developers.sap.com/tutorial-navigator.html?tag=software-product-function%3Asap-cloud-application-programming-model&tag=tutorial%3Atype%2Fmission"
+                      >Missions</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Beispielprojekte der SAP
+                <ul>
+                  <li>
+                    <a href="https://github.com/SAP-samples/cloud-cap-samples"
+                      >CAP Node.JS</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://github.com/SAP-samples/cap-sflight"
+                      >CAP SFLIGHT für Node.JS und Java</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="https://developers.sap.com/tutorials/appstudio-onboarding.html"
+                  >Set Up SAP Business Application Studio for Development</a
+                >
+              </li>
+              <li>
+                <a href="https://open.sap.com/courses/cp7"
+                  >OpenSAP Course: Building Applications with SAP Cloud
+                  Application Programming Model</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Austausch und Veranstaltungen</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://answers.sap.com/tags/9f13aee1-834c-4105-8e43-ee442775e5ce"
+                  >SAP Community CAP Q&A</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sapmentors-slack-invite.cfapps.eu10.hana.ondemand.com/"
+                  >SAP Mentors & Friends Slack</a
+                >
+                #cap Channel
+              </li>
+              <li>
+                <a href="https://cap.cloud.sap/docs/resources/#events"
+                  >SAP CAP Customer Roundtable</a
+                >
+                (alle 3 Monate)
+              </li>
+              <li>
+                <a href="https://recap-conf.dev/"
+                  >re>≡CAP Conference: 7. Juli 2023</a
+                >
+              </li>
+            </ul>
+          </section>
         </section>
         <section>
           <h3>Wesentliche Erkenntnisse</h3>
@@ -294,6 +357,9 @@
             ><br />
             <a href="mailto:gregor@computerservice-wolf.com" target="_blank"
               >gregor@computerservice-wolf.com</a
+            ><br />
+            <a href="https://chaos.social/@gregorw" target="_blank"
+              >@gregorw@chaos.social</a
             ><br />
             <a href="https://twitter.com/wolf_gregor" target="_blank"
               >@wolf_gregor</a
