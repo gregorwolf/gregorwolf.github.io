@@ -1,183 +1,197 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Fiori Overview</title>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+  <head>
+    <title>Fiori Overview</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
-		<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal"
-				data-sap-ui-xx-bindingSyntax="complex"				
-				>
-		</script>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script>
-			sap.ui.localResources("fioripresentation");
-			var app = new sap.m.App({initialPage:"iddefault1"});
-			var page = sap.ui.view({
-					id:"iddefault1", 
-					viewName:"fioripresentation.default", 
-					type:sap.ui.core.mvc.ViewType.XML,
-					viewData : { component : this }
-				});
-			
-			jQuery.sap.declare("local.Formatter");
-			local.Formatter = {
-			
-			  removeUnderscore : function(s) {
-			    if (s) return s.replace(/_/g, ' ');
-			  },
-			
-			  appDescription : function(product, area, subarea) {
-			    return [product, area, subarea].filter(function(s) {
-			      return s;
-			    }).join(" - ");
-			  },
-			
-			  appTypeIcon : function(type) {
-			    switch (type) {
-			      case 'Transactional':
-			        return 'sap-icon://action';
-			        break;
-			      case 'Analytical':
-			        return 'sap-icon://pipeline-analysis';
-			        break;
-			      case 'Factsheet':
-			        return 'sap-icon://folder';
-			        break;
-			      case 'Hybrid':
-			        return 'sap-icon://approvals';
-			        break;
-			      default:
-			        return 'sap-icon://database';
-			    }
-			  }
-		    };
-			
-			sap.ui.controller("local.controller", {
-		        filterValues : [],
-		        queryString : "",
+    <script
+      src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+      id="sap-ui-bootstrap"
+      data-sap-ui-libs="sap.m"
+      data-sap-ui-theme="sap_bluecrystal"
+      data-sap-ui-xx-bindingSyntax="complex"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script>
+      sap.ui.localResources("fioripresentation");
+      var app = new sap.m.App({ initialPage: "iddefault1" });
+      var page = sap.ui.view({
+        id: "iddefault1",
+        viewName: "fioripresentation.default",
+        type: sap.ui.core.mvc.ViewType.XML,
+        viewData: { component: this },
+      });
 
-		        filterBinding : function() {
-		          var mData = this.getView().getModel().getData();
-		          var oBinding = this.getView().byId('idList').getBinding("items");
-		          var aFilters = this.filterValues.map(function(v) {
-		            return new sap.ui.model.Filter(mData.category, "EQ", v);
-		          });
-		          if (this.queryString) {
-		            aFilters.push(new sap.ui.model.Filter('App', 'Contains', this.queryString));
-		          }
-		          oBinding.filter(aFilters, sap.ui.model.FilterType.Application);
-		        },
+      jQuery.sap.declare("local.Formatter");
+      local.Formatter = {
+        removeUnderscore: function (s) {
+          if (s) return s.replace(/_/g, " ");
+        },
 
-		        onSelectOrDeselect : function(oEvent) {
-		          var mData = this.getView().getModel().getData();
+        appDescription: function (product, area, subarea) {
+          return [product, area, subarea]
+            .filter(function (s) {
+              return s;
+            })
+            .join(" - ");
+        },
 
-		          // Get the value selected from the chart
-		          var nCountIndex = oEvent.getParameter('data')[0].data[0].ctx.path.dii_a1;
-		          var sValue = mData.counts[nCountIndex].property;
+        appTypeIcon: function (type) {
+          switch (type) {
+            case "Transactional":
+              return "sap-icon://action";
+              break;
+            case "Analytical":
+              return "sap-icon://pipeline-analysis";
+              break;
+            case "Factsheet":
+              return "sap-icon://folder";
+              break;
+            case "Hybrid":
+              return "sap-icon://approvals";
+              break;
+            default:
+              return "sap-icon://database";
+          }
+        },
+      };
 
-		          // Add or remove value from filter values, based on the action
-		          var sAction = oEvent.getParameter("name");
-		          if (sAction === "selectData") {
-		            this.filterValues.push(sValue);
-		          } else {
-		            this.filterValues = this.filterValues.filter(function(v) {
-		              return v !== sValue;
-		            });
-		          }
+      sap.ui.controller("local.controller", {
+        filterValues: [],
+        queryString: "",
 
-		          // Apply the filter(s)
-		          this.filterBinding();
-		        },
+        filterBinding: function () {
+          var mData = this.getView().getModel().getData();
+          var oBinding = this.getView().byId("idList").getBinding("items");
+          var aFilters = this.filterValues.map(function (v) {
+            return new sap.ui.model.Filter(mData.category, "EQ", v);
+          });
+          if (this.queryString) {
+            aFilters.push(
+              new sap.ui.model.Filter("App", "Contains", this.queryString)
+            );
+          }
+          oBinding.filter(aFilters, sap.ui.model.FilterType.Application);
+        },
 
-		        onCategoryChange : function(oEvent) {
-		          this.filterValues = [];
-		          this.filterBinding();
-		          fnSetCount(oEvent.getSource().getModel(), oEvent.getParameter('selectedItem').getKey());
-		        },
+        onSelectOrDeselect: function (oEvent) {
+          var mData = this.getView().getModel().getData();
 
-		        onSearch : function(oEvent) {
-		          this.queryString = oEvent.getParameter('query');
-		          this.filterBinding();
-		        }
+          // Get the value selected from the chart
+          var nCountIndex =
+            oEvent.getParameter("data")[0].data[0].ctx.path.dii_a1;
+          var sValue = mData.counts[nCountIndex].property;
 
-		    } );
-			
-			var oDataset = new sap.viz.ui5.data.FlattenedDataset({
-		        dimensions : [
-		          {
-		            axis : 1,
-		            name : 'Category',
-		            value : "{property}"
-		          }
-		        ],
-		        measures : [
-		          {
-		            group : 1,
-		            name : 'Count',
-		            value : '{value}'
-		          }
-		        ],
-		        data : {
-		          path : "/counts"
-		        }
-		      });
+          // Add or remove value from filter values, based on the action
+          var sAction = oEvent.getParameter("name");
+          if (sAction === "selectData") {
+            this.filterValues.push(sValue);
+          } else {
+            this.filterValues = this.filterValues.filter(function (v) {
+              return v !== sValue;
+            });
+          }
 
-		      var fnObjectToArray = function(object) {
-		        return Object.keys(object).map(function(key) {
-		          return { property : key, value : object[key] };
-		        });
-		      }
+          // Apply the filter(s)
+          this.filterBinding();
+        },
 
-		      var fnCountsByProperty = function(records, property) {
-		          return records.reduce(function(counts, record) {
-		            var p = record[property];
-		            if (p in counts) {
-		              counts[p]++;
-		            } else {
-		              counts[p] = 1;
-		            }
-		            return counts;
-		          }, {});
-		      }
+        onCategoryChange: function (oEvent) {
+          this.filterValues = [];
+          this.filterBinding();
+          fnSetCount(
+            oEvent.getSource().getModel(),
+            oEvent.getParameter("selectedItem").getKey()
+          );
+        },
 
-		      var fnSetCount = function(oModel, sProperty) {
-		        var sProperty = sProperty || "Product_Code";
-		        var mData = oModel.getData();
-		        mData.counts = fnObjectToArray(fnCountsByProperty(mData.Apps, sProperty || 'Product_Code'));
-		        mData.category = sProperty;
-		        oModel.setData(mData);
-		      }
+        onSearch: function (oEvent) {
+          this.queryString = oEvent.getParameter("query");
+          this.filterBinding();
+        },
+      });
 
-		      var aCategories = [
-		        "Product_Code", "Product", "Type", "Component_for_Customer_Messages_(Backend)"
-		      ];
+      var oDataset = new sap.viz.ui5.data.FlattenedDataset({
+        dimensions: [
+          {
+            axis: 1,
+            name: "Category",
+            value: "{property}",
+          },
+        ],
+        measures: [
+          {
+            group: 1,
+            name: "Count",
+            value: "{value}",
+          },
+        ],
+        data: {
+          path: "/counts",
+        },
+      });
 
-		      var oModel = new sap.ui.model.json.JSONModel('./model/applist.json');
-		      // oModel.setSizeLimit(350);
-		      oModel.attachEventOnce('requestCompleted', function(oEvent) {
-		        var oModel = oEvent.getSource();
-		        oModel.setData({
-		          categories : aCategories.map(function(c) { return { category : c }; })
-		        }, true);
-		        fnSetCount(oModel, aCategories[2]);
-		      });
-		          
-            page.setModel(oModel);
+      var fnObjectToArray = function (object) {
+        return Object.keys(object).map(function (key) {
+          return { property: key, value: object[key] };
+        });
+      };
 
-            var oChart = page.byId("idChart");
-            oChart.setDataset(oDataset);
-			
-			app.addPage(page);
-			app.placeAt("content");
-		           			
-		</script>
+      var fnCountsByProperty = function (records, property) {
+        return records.reduce(function (counts, record) {
+          var p = record[property];
+          if (p in counts) {
+            counts[p]++;
+          } else {
+            counts[p] = 1;
+          }
+          return counts;
+        }, {});
+      };
 
-	</head>
-	<body class="sapUiBody" role="application">
-		<div id="content"></div>
-	</body>
+      var fnSetCount = function (oModel, sProperty) {
+        var sProperty = sProperty || "Product_Code";
+        var mData = oModel.getData();
+        mData.counts = fnObjectToArray(
+          fnCountsByProperty(mData.Apps, sProperty || "Product_Code")
+        );
+        mData.category = sProperty;
+        oModel.setData(mData);
+      };
+
+      var aCategories = [
+        "Product_Code",
+        "Product",
+        "Type",
+        "Component_for_Customer_Messages_(Backend)",
+      ];
+
+      var oModel = new sap.ui.model.json.JSONModel("./model/applist.json");
+      // oModel.setSizeLimit(350);
+      oModel.attachEventOnce("requestCompleted", function (oEvent) {
+        var oModel = oEvent.getSource();
+        oModel.setData(
+          {
+            categories: aCategories.map(function (c) {
+              return { category: c };
+            }),
+          },
+          true
+        );
+        fnSetCount(oModel, aCategories[2]);
+      });
+
+      page.setModel(oModel);
+
+      var oChart = page.byId("idChart");
+      oChart.setDataset(oDataset);
+
+      app.addPage(page);
+      app.placeAt("content");
+    </script>
+  </head>
+  <body class="sapUiBody" role="application">
+    <div id="content"></div>
+  </body>
 </html>
