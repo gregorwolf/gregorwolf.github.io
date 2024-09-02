@@ -33,6 +33,7 @@
             <li>Motivation</li>
             <li>Historie</li>
             <li>Installation</li>
+            <li>Grundkonzept</li>
             <li>Demo Programme</li>
             <li>Anwendungsbeispiele</li>
           </ul>
@@ -41,25 +42,46 @@
           <h3>Motivation</h3>
           <ul>
             <li>Die Anwender*innen lieben Excel</li>
-            <li>Keine probleme mit Encoding</li>
-            <li>Automatische lokalisierung für Zahlen und Datumswerte</li>
+            <li>Keine Probleme mit Encoding</li>
+            <li>Automatische Lokalisierung für Zahlen und Datumswerte</li>
             <li>Läuft auf dem Applikationsserver</li>
           </ul>
         </section>
         <section>
-          <h3>Historie</h3>
-          <ul>
-            <li>
-              <a
-                href="https://community.sap.com/t5/application-development-blog-posts/abap2xlsx-generate-your-professional-excel-spreadsheet-from-abap/ba-p/12949863"
-                >Initialer Blog Post von Ivan Femia 2010-07-12</a
-              >
-            </li>
-            <li>SAP Code Exchange</li>
-            <li>Umzug auf GitHub</li>
-            <li>Demos</li>
-            <li>Anwendungsbeispiele</li>
-          </ul>
+          <section>
+            <h3>Historie</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://community.sap.com/t5/application-development-blog-posts/abap2xlsx-generate-your-professional-excel-spreadsheet-from-abap/ba-p/12949863"
+                  >Initialer Blog Post von Ivan Femia 2010-07-12</a
+                >
+              </li>
+              <li>SAP Code Exchange</li>
+              <li>Umzug auf GitHub</li>
+              <li>
+                Top Beitragende:
+                <a
+                  href="https://community.sap.com/t5/user/viewprofilepage/user-id/145194"
+                  >Sandra Rossi</a
+                >
+              </li>
+              <li>Ca. 45.000 Zeilen Code im Hauptprojet</li>
+              <li>Ca. 15.000 Zeilen Code in den Demos</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Commits seit 2010</h2>
+            <p>
+              <img src="bilder/commits.png" alt="Commits seit 2010" />
+            </p>
+          </section>
+          <section>
+            <h2>Beitragende</h2>
+            <p>
+              <img src="bilder/contributors.png" alt="Beitragende" />
+            </p>
+          </section>
         </section>
         <section>
           <h3>Installation</h3>
@@ -73,6 +95,67 @@
               <a
                 href="https://erp-up.de/abap2xlsx-professionelle-excel-tabelle-aus-abap-erstellen/"
                 >Artikel von Andreas Geiger</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h3>Grundkonzept</h3>
+            <p>
+              ABAP Code bzw. Reader Klassen erzeugen ABAP OO Instanzen die das
+              Excel Dokument repräsentieren
+            </p>
+            <ul>
+              <li>Excel Arbeitsmappe = Workbook = zcl_excel</li>
+              <li>Excel Arbeitsblatt = Worksheet = zcl_excel_worksheet</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Reader</h3>
+            <ul>
+              <li>Excel 2007 (XLSX)</li>
+              <li>Excel 2007 mit Makros (XLSM)</li>
+              <li>
+                zcl_excel_reader_huge_file - Weniger Funktionen aber größere
+                Dateien
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Writer</h3>
+            <ul>
+              <li>CSV</li>
+              <li>Excel 2007 (XLSX)</li>
+              <li>Excel 2007 mit Makros (XLSM)</li>
+              <li>
+                zcl_excel_writer_huge_file - Weniger Funktionen aber größere
+                Dateien
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h3>Demo Programme</h3>
+          <ul>
+            <li>
+              Im eigenständigen Git Repository
+              <a href="https://github.com/abap2xlsx/demos">abap2xlsx/demos</a>
+            </li>
+            <li>ZABAP2XLSX_DEMO_SHOW - Demos einzeln ausführen</li>
+            <li>ZDEMO_EXCEL - Alle Demos auf einmal ausführen</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Anwendungsbeispiele</h3>
+          <ul>
+            <li>Excel Down-/Upload von Tabelleninhalten</li>
+            <li>Geschäftspartnerpflege</li>
+            <li>
+              Von Stefan Schmöcker
+              <a
+                href="https://www.inwerken.de/wp-content/uploads/2017/02/InsideTrack-bei-Inwerken-ABAP2XLSX.pdf"
+                >ab Seite 32</a
               >
             </li>
           </ul>
