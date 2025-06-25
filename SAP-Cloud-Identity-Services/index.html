@@ -16,285 +16,180 @@
       rel="stylesheet"
       href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css"
     />
-    <title>Getting started with SAP Cloud Application Programming Model</title>
+    <title>SAP Cloud Identity Services</title>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section
-          data-background="../SAP-S4HANA-Extensibility-In-app-and-Side-by-side/images/Melbourne.jpg"
+          data-background="../SAP-Cloud-Identity-Services/bilder/largo-di-idro.jpg"
         >
           <p>
             <img
-              src="./images/cap.svg"
-              width="250em"
-              alt="Welcome to CAP"
+              src="./bilder/cis.svg"
+              width="200em"
+              alt="SAP Cloud Identity Services"
               class="plain"
             />
           </p>
-          <h2>Getting started with CAP</h2>
-          <h4>SAP Cloud Application Programming Model</h4>
+          <h2>SAP Cloud Identity Services</h2>
           <p>Gregor Wolf</p>
         </section>
         <section>
-          <h4>
-            From Capire the CAP documentation (<a href="https://cap.cloud.sap/"
-              >https://cap.cloud.sap/</a
-            >)
-          </h4>
-          <p>
-            The SAP Cloud Application Programming Model (CAP) is a framework of
-            languages, libraries, and tools for building enterprise-grade
-            services and applications. It guides developers along a 'golden
-            path' of proven best practices and a great wealth of out-of-the-box
-            solutions to recurring tasks.
-          </p>
-        </section>
-        <section>
-          <h2>CAP Architecture</h2>
-          <p>
-            <img
-              src="../Getting-started-with-CAP/images/CAP-Architecture.png"
-              width="80%"
-              alt="CAP Architecture"
-              class="plain"
-            />
-          </p>
-        </section>
-        <section
-          data-background="../Getting-started-with-CAP/images/Open-and-Opinionated.jpg"
-        >
-          <h3>CAP is Opinionated but also Open</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>CAP is <em>Opinionated</em> in...</th>
-                <th>CAP is <em>Open</em> as...</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Higher-level concepts and APIs</strong>
-                  abstracting from and avoiding lock-ins to low-level platform
-                  features and protocols
-                </td>
-                <td>
-                  All abstractions follow a glass-box pattern that allows
-                  unrestricted access to lower-level things, if required
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Best Practices served out-of-the-box</strong>
-                  with generic solutions for many recurring tasks
-                </td>
-                <td>
-                  You can always handle things your way in custom handlers,
-                  decide whether to adopt CQRS or Event Sourcing, for example
-                  ... while CAP simply tries to get the tedious tasks out of
-                  your way.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Out-of-the-box support</strong> for
-                  <br />
-                  <strong>SAP Fiori</strong>
-                  and
-                  <strong>SAP HANA</strong>
-                </td>
-                <td>
-                  You can also choose other UI technologies, like Vue.js, or
-                  databases, by providing new database integrations.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Dedicated tools support</strong>
-                  provided in SAP Business Application Studio, and Visual Studio
-                  Cod or Eclipse.
-                </td>
-                <td>
-                  CAP doesn't depend on those tools. Everything in CAP can be
-                  done using the @sap/cds-dk CLI and any editor or IDE of your
-                  choice.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section data-background="./images/SE80-Bookshop.jpg">
-          <h3>Comparison</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Functionality</th>
-                <th>ABAP</th>
-                <th>CAP</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>IDE</td>
-                <td>
-                  SE80 / ABAP in Eclipse aka.<br />
-                  SAP ABAP Development Tools for Eclipse (AiE / ADT)
-                </td>
-                <td>
-                  SAP Business Application Studio (BAS) / VS Code / vim / ...
-                </td>
-              </tr>
-              <tr>
-                <td>Data Definition</td>
-                <td>SE11</td>
-                <td>CDS</td>
-              </tr>
-              <tr>
-                <td>OData Service Definition</td>
-                <td>SEGW / CDS</td>
-                <td>CDS</td>
-              </tr>
-              <tr>
-                <td>Custom Logic</td>
-                <td>ABAP</td>
-                <td>Java or JavaScript</td>
-              </tr>
-              <tr>
-                <td>OData Service Exposure</td>
-                <td>/IWFND/MAINT_SERVICE</td>
-                <td>cds watch / cds run</td>
-              </tr>
-              <tr>
-                <td>Test</td>
-                <td>/IWFND/GW_CLIENT</td>
-                <td>REST Client, curl, wget</td>
-              </tr>
-              <tr>
-                <td>Application Server</td>
-                <td>
-                  SAP Application Server ABAP<br />
-                  SAP BTP ABAP Environment (Steampunk)
-                </td>
-                <td>
-                  Java or Node.JS runtime in <br />
-                  SAP BTP Cloud Foundry <br />
-                  or SAP HANA XSA (on premise)<br />
-                  So far not supported by SAP:<br />
-                  Kubernetes (K8s) / Kyma<br />
-                  Microsoft Azure
-                </td>
-              </tr>
-              <tr>
-                <td>Database</td>
-                <td>
-                  SAP DB’s: HANA, ASE, MaxDB<br />
-                  Oracle, MS SQL Server, IBM DB2
-                </td>
-                <td>
-                  Local development: sqlite<br />
-                  <a href="https://github.com/sapmentors/cds-pg"
-                    >Community Project cds-pg for PostgreSQL</a
-                  ><br />
-                  Check for changes at
-                  <a href="https://github.com/cap-js"
-                    >https://github.com/cap-js</a
-                  >
-                  for new SQL Layer<br />
-                  Production: SAP HANA
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <h2>SAP Cloud Identity Services</h2>
+          <ul>
+            <li>Überblick</li>
+            <li>Einrichtung und SAP BTP Verbindung</li>
+            <li>Benutzer- und Gruppen-Provisionierung</li>
+            <li>Benutzer Authentifizierung</li>
+            <li>Anbindung an Entra ID</li>
+          </ul>
         </section>
         <section>
           <section>
-            <h2>Business Case</h2>
+            <h2>Architektur</h2>
             <p>
-              Self Service that allows<br />
-              a Customer to lookup<br />
-              Customer Material Info<br />
-              from SAP S/4HANA (Cloud).
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/architecture.png"
+                width="100%"
+                alt="SAP Cloud Identity Services Architektur"
+                class="plain"
+              />
             </p>
           </section>
           <section>
-            <h2>Preperation</h2>
-            <p>Test APIs on api.sap.com:</p>
-            <ul>
-              <li>
-                <a
-                  href="https://api.sap.com/api/API_CUSTOMER_MATERIAL_SRV/overview"
-                  >API_CUSTOMER_MATERIAL_SRV</a
-                >
-              </li>
-              <li>
-                <a href="https://api.sap.com/api/API_PRODUCT_SRV/overview"
-                  >API_PRODUCT_SRV</a
-                >
-              </li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Let's build it.</h2>
+            <h2>Regionale Verfügbarkeit</h2>
             <p>
               <img
-                src="./images/SAPBusinessApplicationStudio_logo.png"
-                alt="BAS"
+                src="../SAP-Cloud-Identity-Services/bilder/regional-availability.png"
+                width="100%"
+                alt="SAP Cloud Identity Services Regionale Verfügbarkeit"
+                class="plain"
+              />
+            </p>
+          </section>
+          <section>
+            <h2>Welche SAP Cloud Identity Services Tenants existieren?</h2>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/tenants.png"
+                width="100%"
+                alt="SAP Cloud Identity Services Tenants"
                 class="plain"
               />
             </p>
             <p>
-              Using SAP Business Application Studio<br />
-              or VS Code
+              <a href="https://iamtenants.accounts.cloud.sap/"
+                >iamtenants.accounts.cloud.sap</a
+              >
             </p>
           </section>
+        </section>
+        <section>
           <section>
-            <h2>Initialize CAP project</h2>
-            <p>cds init &lt;projectname&gt;</p>
+            <h2>Einrichtung</h2>
+            <h3>mit Terraform</h3>
           </section>
           <section>
-            <h2>Start CAP Backend</h2>
-            <p>cds watch</p>
+            <h2>Entitlement</h2>
+            <pre>
+              <code data-trim data-noescape>
+resource "btp_subaccount_entitlement" "identity_service" {
+  subaccount_id = btp_subaccount.trial.id
+  service_name  = "sap-identity-services-onboarding"
+  plan_name     = "default"
+}
+              </code>
+            </pre>
           </section>
           <section>
-            <h2>Import OData Definitions</h2>
-            <p>cds import &lt;EDMX File&gt; --keep-namespace --as cds</p>
+            <h2>Subscription</h2>
+            <pre>
+              <code data-trim data-noescape>
+resource "btp_subaccount_subscription" "identity_instance" {
+  subaccount_id = btp_subaccount.trial.id
+  app_name      = "sap-identity-services-onboarding"
+  plan_name     = "default"
+  parameters = jsonencode({
+    cloud_service = "TEST"
+  })
+  depends_on = [btp_subaccount_entitlement.identity_service]
+}
+              </code>
+            </pre>
           </section>
           <section>
-            <h2>Test against remote service</h2>
+            <h2>Trust zum BTP Subaccount herstellen</h2>
+            <pre>
+              <code data-trim data-noescape>
+resource "btp_subaccount_trust_configuration" "customized" {
+  subaccount_id     = btp_subaccount.trial.id
+  identity_provider = element(split("/", 
+    btp_subaccount_subscription.identity_instance
+      .subscription_url), 2)
+}
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h2>Terraform Konfiguration anwenden</h2>
+            <pre>
+              <code data-trim data-noescape>
+                terraform login
+                terraform init
+                terraform plan
+                terraform apply
+              </code>
+            </pre>
             <p>
-              npm add @sap-cloud-sdk/http-client@2.x @sap-cloud-sdk/util@2.x
-              @sap-cloud-sdk/connectivity@2.x
+              <a href="https://github.com/gregorwolf/terraform-trial"
+                >github.com/gregorwolf/terraform-trial</a
+              >
+            </p>
+          </section>
+          <section>
+            <h2>Ergebnis</h2>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/cis-subscription.png"
+                width="100%"
+                alt="SAP Cloud Identity Services Subaccount Instance"
+                class="plain"
+              />
             </p>
           </section>
         </section>
         <section>
-          <h3>Tips & Tricks</h3>
-          <ul>
-            <li>Update to the latest CAP Release ASAP</li>
-            <li>Use the latest Node.JS LTS Version</li>
-            <li>Automate tests in Backend and Frontend</li>
-            <li>Use CI/CD</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Key Takeaways</h3>
-          <p>SAP Cloud Application Programming Model (CAP)</p>
-          <ul>
-            <li>Short time to API and UI</li>
-            <li>Available for Java and Node.JS</li>
-            <li>
-              Supports SAP Business Technology Platform<br />
-              and SAP HANA XSA on Premise
-            </li>
-          </ul>
+          <section>
+            <h2>Benutzer- und Gruppen-Provisionierung</h2>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/ips.png"
+                width="100%"
+                alt="SAP Cloud Identity Provisioning Services"
+                class="plain"
+              />
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/source-systems?locale=en-US"
+                  >Source Systems</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-systems?locale=en-US"
+                  >Target Systems</a
+                >
+              </li>
+            </ul>
+            <p></p>
+          </section>
         </section>
         <!-- Contact -->
         <section>
-          <h2>Contact</h2>
+          <h2>Kontakt</h2>
           <p style="text-align: left; margin-left: 5em">
             Gregor Wolf,
             <a href="https://computerservice-wolf.com/" target="_blank"
@@ -306,15 +201,15 @@
           </p>
           <table>
             <tr>
-              <th>Presentation</th>
+              <th>Präsentation</th>
               <th>&nbsp;</th>
               <th>&nbsp;</th>
-              <th>Business Card</th>
+              <th>Visitenkarte</th>
             </tr>
             <tr>
               <td>
                 <img
-                  src="./images/QR-Code-Link-to-Slides.png"
+                  src="./bilder/qr-code-to-presentation.png"
                   alt="Link to Presentation"
                   height="250px"
                   class="plain"
@@ -325,50 +220,13 @@
               <td>
                 <img
                   src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png"
-                  alt="Business Card"
+                  alt="Visitenkarte"
                   height="250px"
                   class="plain"
                 />
               </td>
             </tr>
           </table>
-        </section>
-        <section>
-          <h3>Links</h3>
-          <ul>
-            <li>
-              <a
-                href="https://github.com/gregorwolf/customer-material-management"
-                >Customer Material Management Sample Project on GitHub</a
-              >
-            </li>
-            <li>
-              <a href="https://cap.cloud.sap/"
-                >Capire - the official CAP documentation</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://developers.sap.com/tutorials/appstudio-onboarding.html"
-                >Set Up SAP Business Application Studio for Development</a
-              >
-            </li>
-            <li>
-              <a href="https://open.sap.com/courses/cp7"
-                >OpenSAP Course: Building Applications with SAP Cloud
-                Application Programming Model</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://answers.sap.com/tags/9f13aee1-834c-4105-8e43-ee442775e5ce"
-                >SAP Community CAP Q&A</a
-              >
-            </li>
-            <li>
-              <a href="https://recap-conf.dev/">re>≡CAP Conference</a>
-            </li>
-          </ul>
         </section>
       </div>
     </div>
