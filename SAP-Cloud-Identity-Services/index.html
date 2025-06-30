@@ -40,9 +40,9 @@
           <ul>
             <li>Überblick</li>
             <li>Einrichtung und SAP BTP Verbindung</li>
+            <li>Anbindung an Entra ID</li>
             <li>Benutzer- und Gruppen-Provisionierung</li>
             <li>Benutzer Authentifizierung</li>
-            <li>Anbindung an Entra ID</li>
           </ul>
         </section>
         <section>
@@ -161,6 +161,100 @@ resource "btp_subaccount_trust_configuration" "customized" {
         </section>
         <section>
           <section>
+            <h2>Anbindung an Entra ID</h2>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/corporate-idp.png"
+                width="60%"
+                alt="Identity Provider Proxy"
+                class="plain"
+              /><br />
+              <a
+                href="https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/corporate-identity-providers?locale=en-US"
+                >Corporate Identity Providers</a
+              >
+            </p>
+          </section>
+          <section>
+            <h3>Konfigurationsschritte (1/5)</h3>
+            <p>
+              <a
+                href="https://learn.microsoft.com/en-us/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?source=docs"
+                >Configure SAP Cloud Identity Services for Single sign-on with
+                Microsoft Entra ID
+              </a>
+            </p>
+            <ul>
+              <li>
+                Download SAML Metadaten aus IAS -> Applications & Resources ->
+                Single Sign On -> SAML 2.0 Configuration
+              </li>
+              <li>
+                In Entra ID -> Enterprise Applications -> Neue Anwendung -> SAP
+                -> SAP Cloud Identity Services
+              </li>
+              <li>SSO -> SAML -> Upload IAS Metadata</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Konfigurationsschritte (2/5)</h3>
+            <ul>
+              <li>Attribute für SAP anpassen</li>
+            </ul>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/Entra-ID-Attributes-and-Claims.png"
+                width="80%"
+                alt="Identity Provider Proxy"
+                class="plain"
+              />
+            </p>
+          </section>
+          <section>
+            <h3>Konfigurationsschritte (3/5)</h3>
+            <ul>
+              <li>
+                Download Federation Metadata XML aus IAS Enterprise Application
+              </li>
+              <li>
+                Anlage Corporate Identity Provider in SAP Cloud Identity
+                Services -> Identity Providers
+              </li>
+              <li>Import Federation Metadata XML</li>
+              <li>Aktivierung Identity Federation</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Konfigurationsschritte (4/5)</h3>
+            <ul>
+              <li>Subject Name Identifier anpassen</li>
+            </ul>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/application-corporate-idp-NameID.png"
+                width="60%"
+                alt="Subject Name Identifier"
+                class="plain"
+              />
+            </p>
+          </section>
+          <section>
+            <h3>Konfigurationsschritte (5/5)</h3>
+            <ul>
+              <li>Self-defined Attributes anpassen</li>
+            </ul>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/application-corporate-idp-attributes.png"
+                width="60%"
+                alt="Self-defined Attributes"
+                class="plain"
+              />
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
             <h2>Benutzer- und Gruppen-Provisionierung</h2>
             <p>
               <img
@@ -184,7 +278,6 @@ resource "btp_subaccount_trust_configuration" "customized" {
                 >
               </li>
             </ul>
-            <p></p>
           </section>
         </section>
         <!-- Contact -->
