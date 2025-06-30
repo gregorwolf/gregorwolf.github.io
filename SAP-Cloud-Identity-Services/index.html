@@ -41,8 +41,8 @@
             <li>Überblick</li>
             <li>Einrichtung und SAP BTP Verbindung</li>
             <li>Anbindung an Entra ID</li>
-            <li>Benutzer- und Gruppen-Provisionierung</li>
             <li>Benutzer Authentifizierung</li>
+            <li>Benutzer- und Gruppen-Provisionierung</li>
           </ul>
         </section>
         <section>
@@ -241,16 +241,49 @@ resource "btp_subaccount_trust_configuration" "customized" {
           <section>
             <h3>Konfigurationsschritte (5/5)</h3>
             <ul>
-              <li>Self-defined Attributes anpassen</li>
+              <li>Attribute anpassen</li>
             </ul>
             <p>
               <img
                 src="../SAP-Cloud-Identity-Services/bilder/application-corporate-idp-attributes.png"
-                width="60%"
+                width="50%"
                 alt="Self-defined Attributes"
                 class="plain"
-              />
+              /><br />
+              <a
+                href="https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/configure-subject-name-identifier-sent-to-application?locale=en-US"
+                >Supported Attributes
+              </a>
             </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Benutzer Authentifizierung</h2>
+            <ul>
+              <li>Zwischen BTP und IAS zukünftig nur noch OpenID Connect</li>
+              <li>
+                Neue Instanzen von SAP Build Work Zone authentifizieren direkt
+                am IAS (XSUAA wird nicht mehr verwendet)
+              </li>
+              <li>Zu Entra ID ist SAML und OpenID Connect möglich</li>
+            </ul>
+            <p>Tipps:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://chromewebstore.google.com/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=de"
+                  >Browser Plugin: SAML-tracer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://help.sap.com/docs/btp/sap-business-technology-platform/migration-from-saml-trust-to-openid-connect-trust-with-identity-authentication?locale=en-US"
+                  >Migration from SAML Trust to OpenID Connect Trust with SAP
+                  Cloud Identity Services</a
+                >
+              </li>
+            </ul>
           </section>
         </section>
         <section>
