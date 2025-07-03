@@ -84,6 +84,19 @@
               >
             </p>
           </section>
+          <section>
+            <h2>Empfehlungen</h2>
+            <ul>
+              <li>Möglichst wenige CIS Tenants</li>
+              <li>Nur einen produktiven CIS Tenant</li>
+              <li>
+                Mit SuccessFactors: Eigene CIS Tenants für Dev, QA, Preprod sind
+                OK
+              </li>
+              <li>CIS Test nur an Sandbox</li>
+              <li>BTP Dev Subaccount ist für Entwickler produktiv</li>
+            </ul>
+          </section>
         </section>
         <section>
           <section>
@@ -341,6 +354,58 @@ resource "btp_subaccount_trust_configuration" "customized" {
               <a
                 href="https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-local-identity-directory?locale=en-US"
                 >Local Identity Directory
+              </a>
+            </p>
+          </section>
+          <section>
+            <h3>Resultat</h3>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/ips-provisioning-result.png"
+                width="80%"
+                alt="Resultat des Provisioning"
+                class="plain"
+              />
+            </p>
+          </section>
+          <section>
+            <h3>Quellsystem</h3>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/ips-source-local-id.png"
+                width="80%"
+                alt="Local Identity Directory als Quellsystem"
+                class="plain"
+              /><br />
+              <a
+                href="https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/local-identity-directory?locale=en-US"
+                >Local Identity Directory
+              </a>
+            </p>
+          </section>
+          <section>
+            <h3>Voraussetzung für das Zielsystem</h3>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/ips-target-xsuaa-apiacces.png"
+                width="80%"
+                alt="SAP BTP XS Advanced UAA Service Plan apiacces"
+                class="plain"
+              />
+            </p>
+          </section>
+          <section>
+            <h3>Zielsystem</h3>
+            <p>
+              <img
+                src="../SAP-Cloud-Identity-Services/bilder/ips-target-xsuaa.png"
+                width="80%"
+                alt="SAP BTP XS Advanced UAA (Cloud Foundry) als Zielsystem"
+                class="plain"
+              /><br />
+              <a
+                href="https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-btp-xs-advanced-uaa-cloud-foundry?locale=en-US"
+                >SAP BTP XS Advanced UAA (Cloud Foundry)
               </a>
             </p>
           </section>
