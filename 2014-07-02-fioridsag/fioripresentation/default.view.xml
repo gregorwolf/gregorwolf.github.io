@@ -1,4 +1,4 @@
-<core:View xmlns:core="sap.ui.core"
+<mvc:View xmlns:core="sap.ui.core"
         xmlns:v="sap.viz.ui5"
         xmlns:t="sap.viz.ui5.types"
 		xmlns:l="sap.ui.layout" 
@@ -20,8 +20,8 @@
 		      
 		      <l:VerticalLayout>
 		      	<ObjectHeader title="SAPUI5 vs. Fiori" />
-				<l:HorizontalLayout allowWrapping="true">
-					<l:VerticalLayout  allowWrapping="true" width="45%" class="marginVerticalContent">
+				<l:HorizontalLayout>
+					<l:VerticalLayout width="45%" class="marginVerticalContent">
 		        		<core:HTML content="&lt;h2&gt;SAPUI5&lt;/h2&gt;" />
 		      			<Text text="SAPUI5 ist ein(e) Clientseitige(s) HTML5 und JavaScript-basierte 
 		      			Rendering-Bibliothek und Programmiermodell, das für die Nutzung von 
@@ -31,10 +31,10 @@
 					    <Link
 					        text="SAPUI5 SDK"
 					        target="_blank"
-					        href="https://sapui5.hana.ondemand.com/sdk/" 
+					        href="https://ui5.sap.com/sdk/" 
 							class="marginLink" />		        
 					</l:VerticalLayout>
-					<l:VerticalLayout  allowWrapping="true" width="45%" class="marginVerticalContent">
+					<l:VerticalLayout width="45%" class="marginVerticalContent">
 		        		<core:HTML content="&lt;h2&gt;Fiori&lt;/h2&gt;" />
 		      			<Text text="SAP Fiori – kommt aus dem italienischen und bedeutet ‘Blume’. 
 						Fiori ist SAP’s Ansatz die am häufigsten genutzen Transaktionen mit der Benutzererbarkeit
@@ -57,26 +57,12 @@
 		        <Image src="resource/img/FioriArchitecture.png" />
 		      </l:VerticalLayout>
 		      <l:VerticalLayout class="marginVerticalContent">
-		      	<ObjectHeader title="SAP Fiori Apps" />
-			    <v:Column
-	              id="idChart"
-	              width="500px"
-	              height="500px">
-	              <v:title>
-	                <t:Title
-	                  visible="true"
-	                  text="by {
-	                    path : '/category',
-	                    formatter : 'local.Formatter.removeUnderscore'
-	                  }" />
-	              </v:title>
-                    <Link
-                        text="SAP Fiori Apps"
-                        target="_blank"
-                        href="https://code.bluefinsolutions.com/~dadams/FioriWebinar/AppAnalysis.html" />		        
-	            </v:Column>	        
+		      	<ObjectHeader title="SAP Fiori Apps" />			    
+				<Link
+					text="SAP Fiori Apps Library"
+					target="_blank"
+					href="https://fioriappslibrary.hana.ondemand.com/" />		        
 		      </l:VerticalLayout>
-	
 		      <l:VerticalLayout class="marginVerticalContent">
 		      	<ObjectHeader title="Reference for transactional apps" />
 			    <Link
@@ -88,4 +74,4 @@
 		  </Carousel>
 		</content>
 	</Page>
-</core:View>
+</mvc:View>
