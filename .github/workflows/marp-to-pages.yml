@@ -20,16 +20,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Ensure build dir exists
-        run: mkdir -p build
-
-      - name: Copy everything to the build folder
-        run: cp -R ./* build/
-
       - name: Marp Build (CAP-heute-und-morgen)
         uses: docker://marpteam/marp-cli:v4.2.3
         with:
-          args: -I CAP-heute-und-morgen/ -o build/CAP-heute-und-morgen/
+          args: -I CAP-heute-und-morgen/ -o CAP-heute-und-morgen/
         env:
           MARP_USER: root:root
 
@@ -37,7 +31,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./build/
+          source-dir: ./
           preview-branch: gh-pages
           umbrella-dir: pr-preview
 
@@ -46,5 +40,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ./build/
+          folder: ./
           clean-exclude: pr-preview/
