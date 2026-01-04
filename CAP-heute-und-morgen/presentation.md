@@ -18,7 +18,7 @@ style: |
 
 ![width:250px](../Getting-started-with-CAP/images/cap.svg)
 
-#### SAP Cloud Application Programming Model heute und morgen
+# SAP Cloud Application Programming Model heute und morgen
 
 Gregor Wolf
 SAP Solution Architekt und Entwickler
