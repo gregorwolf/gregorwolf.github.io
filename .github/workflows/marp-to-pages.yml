@@ -31,13 +31,19 @@ jobs:
       # - name: Move build dir
       #   run: mv ../build .
 
-      - name: Marp Build (CAP-heute-und-morgen)
+      - name: Marp Build - HTML
         uses: docker://marpteam/marp-cli:v4.2.3
         with:
-          args: -I CAP-heute-und-morgen/ -o CAP-heute-und-morgen/
+          args: -I ./ -o ./
         env:
           MARP_USER: root:root
 
+      - name: Marp Build - PDF
+        uses: docker://marpteam/marp-cli:v4.2.3
+        with:
+          args: --pdf -I ./ -o ./
+        env:
+          MARP_USER: root:root
       # - name: Add Content-Security-Policy (CSP) meta tag
       #   run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' CAP-heute-und-morgen/presentation.html
 
