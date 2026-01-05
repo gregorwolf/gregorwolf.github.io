@@ -38,8 +38,8 @@ jobs:
         env:
           MARP_USER: root:root
 
-      - name: Add Content-Security-Policy (CSP) meta tag
-        run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' CAP-heute-und-morgen/presentation.html
+      # - name: Add Content-Security-Policy (CSP) meta tag
+      #   run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' CAP-heute-und-morgen/presentation.html
 
       # - name: Git status
       #   run: git status
