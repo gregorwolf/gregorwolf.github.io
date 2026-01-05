@@ -29,7 +29,10 @@ jobs:
 
       - name: Add Content-Security-Policy (CSP) meta tag
         run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' CAP-heute-und-morgen/presentation.html
-      
+
+      - name: Git status
+        run: git status
+
       - name: Deploy preview
         if: ${{ github.event_name == 'pull_request' }}
         uses: rossjrw/pr-preview-action@v1
