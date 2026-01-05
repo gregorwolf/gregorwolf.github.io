@@ -1,0 +1,77 @@
+<mvc:View xmlns:core="sap.ui.core"
+        xmlns:v="sap.viz.ui5"
+        xmlns:t="sap.viz.ui5.types"
+		xmlns:l="sap.ui.layout" 
+		xmlns:c="sap.ui.commons"
+		xmlns:mvc="sap.ui.core.mvc" 
+		xmlns="sap.m"
+		controllerName="fioripresentation.default" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Fiori Overview">
+		<content>
+		  <Carousel>
+		    <pages>
+		      <l:VerticalLayout>
+		      	<ObjectHeader title="Einsatz von SAPUI5/Fiori aus Kundenprojektsicht" />
+		      	<l:HorizontalLayout>
+		      		<Image src="resource/img/OsramCorpLogo-RGBpos_2013.png" />
+		        	<Image src="resource/img/Logo_der_Deutschsprachigen_SAP.png" />
+		        </l:HorizontalLayout>
+		      </l:VerticalLayout>
+		      
+		      <l:VerticalLayout>
+		      	<ObjectHeader title="SAPUI5 vs. Fiori" />
+				<l:HorizontalLayout>
+					<l:VerticalLayout width="45%" class="marginVerticalContent">
+		        		<core:HTML content="&lt;h2&gt;SAPUI5&lt;/h2&gt;" />
+		      			<Text text="SAPUI5 ist ein(e) Clientseitige(s) HTML5 und JavaScript-basierte 
+		      			Rendering-Bibliothek und Programmiermodell, das für die Nutzung von 
+		      			SAP-Daten optimiert ist. Es verbindet neue Qualitäten wie Offenheit und Flexibilität 
+		      			mit bekannten Stärken wie der Bereitschaft zum Einsatz in Unternehmen
+		      			und dem Produkt durch SAP." />
+					    <Link
+					        text="SAPUI5 SDK"
+					        target="_blank"
+					        href="https://ui5.sap.com/sdk/" 
+							class="marginLink" />		        
+					</l:VerticalLayout>
+					<l:VerticalLayout width="45%" class="marginVerticalContent">
+		        		<core:HTML content="&lt;h2&gt;Fiori&lt;/h2&gt;" />
+		      			<Text text="SAP Fiori – kommt aus dem italienischen und bedeutet ‘Blume’. 
+						Fiori ist SAP’s Ansatz die am häufigsten genutzen Transaktionen mit der Benutzererbarkeit
+						von Anwendungen für Verbraucher auszustatten. Geliefert wird eine frische und modernen 
+						Benutzerschnittstelle mit einem über verschiedene Apps einheitlichen und ansprechende Design.
+						Diese können über wie Desktop-, Tablet- und Mobilgeräte genutzt werden. 
+						Die Apps folgen einem einfachen und intuitiven Interaktionsmuster mit dem die Benutzern 
+						ihre Aufgaben schnell und mühelos erledigen." />
+					    <Link
+					        text="SAP Fiori Design Guidelines"
+					        target="_blank"
+					        href="http://experience.sap.com/fiori-guidelines/"
+							class="marginLink" />		        
+					</l:VerticalLayout>
+				</l:HorizontalLayout>
+		      </l:VerticalLayout>
+
+		      <l:VerticalLayout class="marginVerticalContent">
+		      	<ObjectHeader title="Fiori Architecture" />
+		        <Image src="resource/img/FioriArchitecture.png" />
+		      </l:VerticalLayout>
+		      <l:VerticalLayout class="marginVerticalContent">
+		      	<ObjectHeader title="SAP Fiori Apps" />			    
+				<Link
+					text="SAP Fiori Apps Library"
+					target="_blank"
+					href="https://fioriappslibrary.hana.ondemand.com/" />		        
+		      </l:VerticalLayout>
+		      <l:VerticalLayout class="marginVerticalContent">
+		      	<ObjectHeader title="Reference for transactional apps" />
+			    <Link
+			        text="Add-on quick reference for transactional apps"
+			        target="_blank"
+			        href="http://scn.sap.com/docs/DOC-53262" />		        
+		      </l:VerticalLayout>
+		    </pages>
+		  </Carousel>
+		</content>
+	</Page>
+</mvc:View>

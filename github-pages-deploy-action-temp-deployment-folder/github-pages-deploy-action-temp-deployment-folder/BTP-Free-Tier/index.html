@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css"
+    />
+    <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css" />
+        -->
+    <link
+      rel="stylesheet"
+      href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css"
+    />
+    <title>BTP Free Tier</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>BTP Free Tier</h2>
+          <h4>Praktische Hans-On Einblicke</h4>
+          <p>Gregor Wolf</p>
+        </section>
+
+        <section>
+          <h3>Themen</h3>
+          <ul>
+            <li>
+              Einrichtung SAP Identity Provisioning und SAP Identity
+              Authentication mit Microsoft Entra ID (früher Azure AD)
+            </li>
+            <li>Monitoring der SAP HANA Cloud mit SAP Cloud ALM</li>
+            <li>On Premise Verbindung über den SAP Cloud Connector</li>
+            <li>BTP ABAP Environment</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>MS Entra ID, IPS, IAS und BTP</h2>
+            <p>
+              <img
+                src="bilder/BTP-IAS-IPS-Entra-ID.png"
+                alt="MS Entra ID, IPS, IAS und BTP"
+              />
+            </p>
+          </section>
+          <section>
+            <p>
+              <a
+                href="https://help.sap.com/docs/identity-provisioning/identity-provisioning/microsoft-azure-active-directory?locale=en-US"
+                >Microsoft Entra ID als IPS Quellsystem</a
+              >
+            </p>
+            <p>
+              <img
+                src="bilder/entra-id-ias-source.png"
+                alt="Konfiguration im IPS"
+              />
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3>Monitoring der SAP HANA Cloud<br />mit SAP Cloud ALM</h3>
+          <p>
+            <a href="https://github.com/SAP-samples/teched2022-XP261"
+              >SAP TechEd 2022: XP261 - Operating Your SAP BTP Platform
+              Environment with SAP Cloud ALM</a
+            >
+          </p>
+        </section>
+        <section>
+          <h3>On Premise Verbindung über den<br />SAP Cloud Connector</h3>
+          <ul>
+            <li>
+              <a href="https://tools.hana.ondemand.com/#cloud"
+                >SAP Cloud Connector Download</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation"
+                >Configuring Principal Propagation</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/gregorwolf/HTML5UserAPIforCF"
+                >Testapplikation für Verbindungstests</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>BTP ABAP Environment</h3>
+          <p>
+            <b>Empfehlung:</b> Landscape Portal mit dem Label "environment" und
+            dem Wert "ABAP" versehen. Dann ist es über die Suche schnell
+            auffindbar.
+          </p>
+        </section>
+        <!-- Contact -->
+        <section>
+          <h2>Kontakt</h2>
+          <p style="text-align: left; margin-left: 5em">
+            Gregor Wolf,
+            <a href="https://computerservice-wolf.com/" target="_blank"
+              >Computerservice Wolf</a
+            ><br />
+            <a href="mailto:gregor@computerservice-wolf.com" target="_blank"
+              >gregor@computerservice-wolf.com</a
+            ><br />
+            <a href="https://chaos.social/@gregorw" target="_blank"
+              >@gregorw@chaos.social</a
+            >
+          </p>
+          <table>
+            <tr>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>Visitenkarte</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <img
+                  src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png"
+                  alt="Business Card"
+                  height="250px"
+                  class="plain"
+                />
+              </td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        progress: true,
+        history: true,
+        dependencies: [],
+      });
+    </script>
+
+    <div
+      class="share-csw"
+      style="
+        position: absolute;
+        bottom: 1em;
+        left: 50%;
+        margin-left: -39px;
+        z-index: 20;
+      "
+    >
+      <a
+        class="share-csw-github"
+        href="https://github.com/gregorwolf"
+        target="_blank"
+      >
+        <img
+          src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png"
+          alt="GitHub"
+          width="25px"
+          height="25px"
+        />
+      </a>
+    </div>
+
+    <style>
+      /* Social sharing */
+      .share-csw a {
+        display: inline-block;
+        height: 34px;
+        line-height: 32px;
+        padding: 5px 10px;
+        color: #fff;
+        font-family: Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+
+      .share-csw-github {
+      }
+
+      .share-csw {
+        line-height: 30px;
+      }
+
+      .share-csw svg img {
+        vertical-align: top;
+      }
+
+      .share-csw a + a {
+        margin-bottom: 1em;
+      }
+
+      .share-csw-twitter {
+        background-color: #00aced;
+      }
+    </style>
+  </body>
+</html>
