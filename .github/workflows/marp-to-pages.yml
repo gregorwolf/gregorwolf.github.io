@@ -41,7 +41,7 @@ jobs:
       - name: Marp Build - PDF
         uses: docker://marpteam/marp-cli:v4.2.3
         with:
-          args: --pdf -I ./ -o ./
+          args: --html --pdf --allow-local-files -I ./ -o ./
         env:
           MARP_USER: root:root
       # - name: Add Content-Security-Policy (CSP) meta tag
