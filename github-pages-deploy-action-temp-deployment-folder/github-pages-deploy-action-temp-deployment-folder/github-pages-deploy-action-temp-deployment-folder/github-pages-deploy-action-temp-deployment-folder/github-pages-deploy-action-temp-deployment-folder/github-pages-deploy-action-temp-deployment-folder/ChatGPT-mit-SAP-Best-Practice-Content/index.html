@@ -1,0 +1,391 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css"
+    />
+    <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css" />
+        -->
+    <link
+      rel="stylesheet"
+      href="../SAP-Fiori-effizient-einf%C3%BChren/css/reveal-override.css"
+    />
+    <title>WIP: ChatGPT mit SAP Best Practice Content</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <p>Gregor Wolf</p>
+          <h3>
+            WIP: ChatGPT mit<br />
+            SAP Best Practice Content
+          </h3>
+          <p>
+            <img
+              src="./bilder/99-QA-Code.png"
+              alt="Link zur Präsentation"
+              height="300px"
+              class="plain"
+            />
+          </p>
+        </section>
+        <section>
+          <section>
+            <h3>Bevor wir beginnen</h3>
+            <h2>ein großes Dankeschön an:</h2>
+            <ul>
+              <li>
+                Sascha Seegebarth für <br />den BTP Stammtisch und die BTPcon
+              </li>
+              <li>Alle Teilnehmer*innen, Sprechern der BTPcon</li>
+              <li>den Sponsoren Inwerken und WSN Technologies</li>
+            </ul>
+          </section>
+          <section>
+            <h2>SAP Influencing</h2>
+            <h3>BTP Opportunities</h3>
+            <ul>
+              <li>
+                <a href="https://influence.sap.com/sap/ino/#/campaign/2277"
+                  >Foundation</a
+                >
+              </li>
+              <li>
+                <a href="https://influence.sap.com/sap/ino/#/campaign/2911"
+                  >BTP ABAP Environment</a
+                >
+              </li>
+              <li>
+                <a href="https://influence.sap.com/sap/ino/#/campaign/2538"
+                  >SAP Business Application Studio (BAS)</a
+                >
+              </li>
+              <li>
+                <a href="https://influence.sap.com/sap/ino/#/campaign/2280"
+                  >SAP Cloud Application Programming Model (CAP)</a
+                >
+              </li>
+              <li>
+                <a href="https://influence.sap.com/sap/ino/#/campaign/2282"
+                  >Integration Suite</a
+                >
+              </li>
+              <li>
+                <a href="https://influence.sap.com/sap/ino/#/campaign/2279"
+                  >Digital Experience</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section>
+            <p>
+              <img
+                src="./bilder/hot-dev-summer-1.jpg"
+                alt="hot development summer 2023"
+              />
+            </p>
+          </section>
+          <section>
+            <h2>Ihr habt mehr als einen S-User</h2>
+            <p>
+              Nutzt Browser Profile (Chrome/Edge) <br />
+              bzw. Multi Account Containers (Firefox)
+            </p>
+            <p>
+              <img src="./bilder/10-Chrome.png" width="300px" alt="Profile" />
+              <img src="./bilder/10-Firefox.png" width="300px" alt="Profile" />
+            </p>
+          </section>
+        </section>
+        <section>
+          <h4>Warum?</h4>
+          <h3>ChatGPT mit SAP Best Practice Content</h3>
+          <ul>
+            <li>S/4HANA Einführung</li>
+            <li>Unterstützung der Geschäftsprozessexperten</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h4>Begriffe</h4>
+            <h3>LLM</h3>
+            <p>Large Language Model</p>
+          </section>
+          <section>
+            <h4>Begriffe</h4>
+            <h3>GPT</h3>
+            <p>Generative Pre-trained Transformer</p>
+          </section>
+          <section>
+            <h4>Begriffe</h4>
+            <h3>Embeddings</h3>
+            <p>
+              Messen die Ähnlichkeit von Textzeichenfolgen.<br />
+              Das Model text-embedding-ada-002 <br />hat 1536 Dimensionen<br />
+              Kosten für die OpenAI API: $0.0004 / 1K tokens<br />
+              <a href="https://openai.com/blog/new-and-improved-embedding-model"
+                >Blog Post: New and improved embedding model</a
+              >
+            </p>
+          </section>
+          <section>
+            <h4>Begriffe</h4>
+            <h3>Tokens</h3>
+            <p>
+              Tokens sind Zeichenfolgen, die im Text vorkommen. Die Modelle
+              verstehen die statistischen Beziehungen zwischen diesen Token und
+              zeichnen sich dadurch aus, dass sie das nächste Token in einer
+              Folge von Token erzeugen.
+            </p>
+          </section>
+        </section>
+        <section>
+          <h4>Herausforderungen mit ChatGPT</h4>
+          <ul>
+            <li>kennt nicht den aktuellen Stand der SAP Best Practice</li>
+            <li>
+              Kosten basierend auf der Anzahl der Tokens. 75 englische Wörter
+              entsprechen ca 100 Tokens
+            </li>
+            <li>
+              der Prompt von text-davinci-003 hat ein Token Limit von 4000
+            </li>
+          </ul>
+          <p>Lösung: Context Injection</p>
+        </section>
+        <section>
+          <section>
+            <h4>Datenbeschaffung</h4>
+            <h3>SAP Best Practices Explorer</h3>
+            <p>
+              <a href="https://rapid.sap.com/bp/">https://rapid.sap.com/bp/</a>
+            </p>
+            <img data-src="./bilder/01-Application-is-loading.png" /><br />
+            <img data-src="./bilder/02-Applicaiton-Error.png" />
+          </section>
+          <section>
+            <h4>Datenbeschaffung</h4>
+            <h3>SAP Cloud ALM</h3>
+            <p>
+              Dank eines Gespräches mit
+              <a href="https://www.linkedin.com/in/riccardo-escher/"
+                >Riccardo Escher</a
+              >
+              habe ich diesen Weg gefunden:<br />
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="https://csw-cloudalm.eu20.alm.cloud.sap/launchpad#ProcessScopingList-display?edit=true&sap-app-origin-hint=&scope=cc500d9c-47f8-46c6-be08-189446e242c0&/SolutionVariantListEdit/11111111-1111-1111-1111-111111111111/?scope=cc500d9c-47f8-46c6-be08-189446e242c0"
+                  >Solution Process Scope</a
+                >
+              </li>
+              <li>→ OData Service</li>
+              <li>→ CAP Applikation</li>
+              <li>
+                → 558 HTML Dateien mit dem SAP Best Practice Inhalten für
+                S/4HANA on Premise 2022
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h4>Datenbeschaffung</h4>
+            <h3>Demo CAP App</h3>
+            <ul>
+              <li>Test OData Endpunkte mit REST Client</li>
+              <li>Mock OData Endpunkte</li>
+              <li>CAP Action Implementierung</li>
+            </ul>
+            <p>
+              Details im SAP Code Jam
+              <a
+                href="https://github.com/SAP-samples/cap-service-integration-codejam"
+                >Service integration with SAP Cloud Application Programming
+                Model</a
+              >
+            </p>
+            <p>Samstag, 8. Juli 2023 nach der reCAP mit DJ Adams.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h4>Erste Schritte mit ChatGPT</h4>
+            <h3>Jupyter Notebook</h3>
+            <ul>
+              <li>
+                Vorbereitung:
+                <a href="https://platform.openai.com/account/api-keys"
+                  >API Keys</a
+                >
+              </li>
+              <li>Demo</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Erste Schritte mit ChatGPT</h4>
+            <h3>Kosten</h3>
+            <p><img data-src="./bilder/20-Costs.png" height="360px" /></p>
+            <p><a href="https://platform.openai.com/account/usage">Usage</a></p>
+          </section>
+        </section>
+        <section>
+          <h2>Vielen Dank</h2>
+          <h2>Eure Fragen ...</h2>
+        </section>
+        <section>
+          <h2>Contact</h2>
+          <p style="text-align: left; margin-left: 5em">
+            Gregor Wolf,
+            <a href="https://computerservice-wolf.com/" target="_blank"
+              >Computerservice Wolf</a
+            ><br />
+            <a href="mailto:gregor@computerservice-wolf.com" target="_blank"
+              >gregor@computerservice-wolf.com</a
+            ><br />
+            Twitter:
+            <a href="https://twitter.com/wolf_gregor" target="_blank"
+              >@wolf_gregor</a
+            >
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Präsentation</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>Business Card</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img
+                    src="./bilder/99-QA-Code.png"
+                    alt="Link zur Präsentation"
+                    height="250px"
+                    class="plain"
+                  />
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                  <img
+                    src="../SAP-Fiori-effizient-einf%C3%BChren/images/QR-Code-Visitenkarte.png"
+                    alt="Business Card"
+                    height="250px"
+                    class="plain"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h3>Links</h3>
+          <ul>
+            <li>
+              <a href="https://www.youtube.com/watch?v=Yhtjd7yGGGA"
+                >ClippyGPT - How I Built Supabase's OpenAI Doc Search
+                (Embeddings)</a
+              >
+            </li>
+            <li>
+              <a href="https://gpt-index.readthedocs.io/en/latest/index.html"
+                >GPT Index (LlamaIndex)</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        progress: true,
+        history: true,
+        controlsLayout: "edges",
+        transition: "convex", // none/fade/slide/convex/concave/zoom
+        dependencies: [],
+      });
+    </script>
+
+    <div
+      class="share-csw"
+      style="
+        position: absolute;
+        bottom: 1em;
+        left: 50%;
+        margin-left: -39px;
+        z-index: 20;
+      "
+    >
+      <a
+        class="share-csw-github"
+        href="https://github.com/gregorwolf"
+        target="_blank"
+      >
+        <img
+          src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png"
+          alt="GitHub"
+          width="25px"
+          height="25px"
+        />
+      </a>
+    </div>
+
+    <style>
+      /* Social sharing */
+      .share-csw a {
+        display: inline-block;
+        height: 34px;
+        line-height: 32px;
+        padding: 5px 10px;
+        color: #fff;
+        font-family: Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+
+      .share-csw-github {
+      }
+
+      .share-csw {
+        line-height: 30px;
+      }
+
+      .share-csw svg img {
+        vertical-align: top;
+      }
+
+      .share-csw a + a {
+        margin-bottom: 1em;
+      }
+
+      .share-csw-twitter {
+        background-color: #00aced;
+      }
+      /*
+      body:after {
+        background-image: url("bilder/contis-logo.png");
+        background-size: 214px 51px;
+        display: inline-block;
+        width: 214px;
+        height: 51px;
+        content: "";
+      }
+      */
+    </style>
+  </body>
+</html>
