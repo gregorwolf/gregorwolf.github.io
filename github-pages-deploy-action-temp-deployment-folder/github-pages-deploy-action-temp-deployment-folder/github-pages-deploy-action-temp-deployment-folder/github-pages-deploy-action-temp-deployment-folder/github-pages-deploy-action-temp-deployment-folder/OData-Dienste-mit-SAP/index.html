@@ -1,0 +1,291 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.css"
+    />
+    <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css" />
+        -->
+    <link rel="stylesheet" href="./css/reveal-override.css" />
+    <title>OData Dienste mit SAP</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <p>Gregor Wolf</p>
+          <h1>
+            OData Dienste<br />
+            mit SAP
+          </h1>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <!--
+                <a href="http://www.profes.de/" 
+                                       target="_blank"><img src="../SAP-Fiori-effizient-einf%C3%BChren/images/profes-logo.png" 
+                                         alt="Profes"
+                                         height="200px"
+                                         class="plain" /></a> -->
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <section>
+            <h2>REST</h2>
+            <ul>
+              <li>Representational State Transfer</li>
+              <li>Client-Server</li>
+              <li>Zustandslos</li>
+              <li>Caching</li>
+              <li>Mehrschichtige Systeme</li>
+              <li>Einheitliche Schnittstelle</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Einheitliche Schnittstelle</h2>
+            <ul>
+              <li>Adressierbarkeit von Ressourcen</li>
+              <li>Repräsentationen von Ressourcen</li>
+              <li>Selbstbeschreibende Nachrichten</li>
+              <li>
+                Verknüpfung von Entitäten durch Links <br />
+                „Hypermedia as the Engine of Application State“ (HATEOAS)
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>OData - Open Data Protocol</h3>
+            <p>
+              <a href="http://www.odata.org/" target="_blank"
+                ><img
+                  src="images/ODataLogo-250.png"
+                  alt="OData Logo"
+                  class="plain"
+              /></a>
+            </p>
+          </section>
+          <section>
+            <h3>OData</h3>
+            <ul>
+              <li>V4 ist seit März 2014 ein OASIS Standard</li>
+              <li>Baut auf Standards wie REST, XML und JSON auf</li>
+              <li>
+                Stellt einheitliche Schnittstellen für den Zugriff auf
+                Datenquellen bereit (Query + CRUD + Actions)
+              </li>
+              <li>
+                Ermöglicht die Integration in Anwendungen basierend auf
+                Internettechnologien
+              </li>
+              <li>
+                Verfügbar in SAP seit der Einführung (Mai 2011) des SAP
+                NetWeaver Gateway (heute SAP Gateway)
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>SAP Gateway</h2>
+            <ul>
+              <li>SAP Gateway ist ab 7.40 Teil von SAP NetWeaver</li>
+              <li>
+                Erlaubt die Verbindung von Browsern, Geräten und Plattformen mit
+                SAP Systemen
+              </li>
+              <li>Implementiert das OData Protokoll<br />(v2, teilweise v4)</li>
+              <li>
+                Kann Eigenständig oder auch zusammen mit z.B. SAP ERP als Add-on
+                betrieben werden (embedded)
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>SAP Gateway - Implementierung</h2>
+            <ul>
+              <li>ABAP OO</li>
+              <li>Core Data Services (CDS, ab 7.50, AnyDB)</li>
+            </ul>
+          </section>
+          <section>
+            <h3>SAP Gateway - Architektur</h3>
+            <p>
+              <img
+                src="images/SAP-Gateway.png"
+                alt="SAP Gateway"
+                class="plain"
+              />
+            </p>
+          </section>
+        </section>
+        <section>
+          <h2>Schritte zum OData Service mit SAP Gateway</h2>
+          <ul>
+            <li>
+              SAP Gateway aktivieren in STC01 <br />
+              (Tasklist SAP_GATEWAY_BASIC_CONFIG)
+            </li>
+            <li>
+              Schnittstellendefinition in SEGW <br />
+              (Entities, Entity Sets, Function Import)
+            </li>
+            <li>Implementierung der <br />Model- und Data-Provider Klassen</li>
+            <li>Aktivierung des Services in /IWFND/MAINT_SERVICE</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Push und Pull</h2>
+          <p>
+            mit dem Subscription und Notification Flow<br />
+            <img src="./images/subscription-notification.png" />
+          </p>
+        </section>
+        <section>
+          <section>
+            <h3>Vergleich mit bestehenden Technologien</h3>
+            <ul>
+              <li>
+                iDoc<br />
+                Massendaten, asynchrone Verarbeitung
+              </li>
+              <li>
+                RFC<br />
+                SAP zu SAP Verbindungen
+              </li>
+              <li>
+                SOAP<br />
+                Wissen für ABAP und PI/PO erforderlich<br />
+                Kann nicht einfach im Browser genutzt werden
+              </li>
+              <li>
+                OData<br />
+                Einfach verständliche HTTP(S) API,<br />
+                synchrone Verarbeitung
+              </li>
+            </ul>
+          </section>
+        </section>
+        <!-- Erweitern -->
+        <section>
+          <section>
+            <h3>Vorteile von OData 1/2</h3>
+            <ul>
+              <li>SAP setzt in S/4HANA darauf</li>
+              <li>Verständliche Schnittstelle für Entwickler</li>
+              <li>Wenn JSON verwendet wird auch lesbare Daten</li>
+              <li>
+                Verknüpfung mit anderen modernen SAP Technologien (SAPUI5,
+                Fiori) möglich
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Vorteile von OData 2/2</h3>
+            <ul>
+              <li>Push und Pull (Queue) von Backend Events möglich</li>
+              <li>
+                Zugriff auf SAP Daten, in nicht SAP typischen
+                Programmiersprachen möglich
+              </li>
+              <li>
+                Vielfältige Verwendungsmöglichkeiten der bereitgestellten Daten
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Nachteile von OData</h3>
+            <ul>
+              <li>Backend muss erreichbar sein</li>
+              <li>Nur synchrone Verarbeitung</li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        progress: true,
+        history: true,
+        dependencies: [],
+      });
+    </script>
+
+    <div
+      class="share-csw"
+      style="
+        position: absolute;
+        bottom: 1em;
+        left: 50%;
+        margin-left: -39px;
+        z-index: 20;
+      "
+    >
+      <a
+        class="share-csw-github"
+        href="https://github.com/gregorwolf"
+        target="_blank"
+      >
+        <img
+          src="../SAP-Fiori-effizient-einf%C3%BChren/images/GitHub-Mark-64px.png"
+          alt="GitHub"
+          width="25px"
+          height="25px"
+        />
+      </a>
+    </div>
+
+    <style>
+      /* Social sharing */
+      .share-csw a {
+        display: inline-block;
+        height: 34px;
+        line-height: 32px;
+        padding: 5px 10px;
+        color: #fff;
+        font-family: Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+
+      .share-csw-github {
+      }
+
+      .share-csw {
+        line-height: 30px;
+      }
+
+      .share-csw svg img {
+        vertical-align: top;
+      }
+
+      .share-csw a + a {
+        margin-bottom: 1em;
+      }
+
+      .share-csw-twitter {
+        background-color: #00aced;
+      }
+    </style>
+  </body>
+</html>
