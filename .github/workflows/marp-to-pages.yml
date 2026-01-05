@@ -26,6 +26,9 @@ jobs:
           args: -I CAP-heute-und-morgen/ -o CAP-heute-und-morgen/
         env:
           MARP_USER: root:root
+      
+      - name: Add CSP Header to Presentation HTML
+        run: sed -i '' 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '\''unsafe-inline'\''; img-src * data:;" />|' CAP-heute-und-morgen/presentation.html
 
       - name: Deploy preview
         if: ${{ github.event_name == 'pull_request' }}
