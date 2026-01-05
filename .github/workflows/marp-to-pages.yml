@@ -20,15 +20,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Ensure build dir exists
+        run: mkdir -p ../build
+
+      - name: Copy content to build dir
+        run: cp -r . ../build/
+      
+      - name: Move build dir
+        run: mv ../build .
+
       - name: Marp Build (CAP-heute-und-morgen)
         uses: docker://marpteam/marp-cli:v4.2.3
         with:
-          args: -I CAP-heute-und-morgen/ -o CAP-heute-und-morgen/
+          args: -I CAP-heute-und-morgen/ -o build/CAP-heute-und-morgen/
         env:
           MARP_USER: root:root
 
       - name: Add Content-Security-Policy (CSP) meta tag
-        run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' CAP-heute-und-morgen/presentation.html
+        run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' build/CAP-heute-und-morgen/presentation.html
 
       - name: Git status
         run: git status
@@ -37,7 +46,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./
+          source-dir: ./build/
           preview-branch: gh-pages
           umbrella-dir: pr-preview
 
@@ -46,5 +55,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ./
+          folder: ./build/
           clean-exclude: pr-preview/
