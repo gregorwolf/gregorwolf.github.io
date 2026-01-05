@@ -16,44 +16,56 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      pages: write
+      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Ensure build dir exists
-        run: mkdir -p ../build
+      # - name: Ensure build dir exists
+      #   run: mkdir -p ../build
 
-      - name: Copy content to build dir
-        run: cp -r . ../build/
+      # - name: Copy content to build dir
+      #   run: cp -r . ../build/
       
-      - name: Move build dir
-        run: mv ../build .
+      # - name: Move build dir
+      #   run: mv ../build .
 
       - name: Marp Build (CAP-heute-und-morgen)
         uses: docker://marpteam/marp-cli:v4.2.3
         with:
-          args: -I CAP-heute-und-morgen/ -o build/CAP-heute-und-morgen/
+          args: -I CAP-heute-und-morgen/ -o CAP-heute-und-morgen/
         env:
           MARP_USER: root:root
 
       - name: Add Content-Security-Policy (CSP) meta tag
-        run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' build/CAP-heute-und-morgen/presentation.html
+        run: sed -i 's|</title>|</title><meta http-equiv="Content-Security-Policy" content="default-src '"'"'unsafe-inline'"'"'; img-src * data:;" />|' CAP-heute-und-morgen/presentation.html
 
-      - name: Git status
-        run: git status
+      # - name: Git status
+      #   run: git status
 
-      - name: Deploy preview
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: rossjrw/pr-preview-action@v1
+      # - name: Deploy preview
+      #   if: ${{ github.event_name == 'pull_request' }}
+      #   uses: rossjrw/pr-preview-action@v1
+      #   with:
+      #     source-dir: ./build/
+      #     preview-branch: gh-pages
+      #     umbrella-dir: pr-preview
+
+      # - name: Deploy production
+      #   if: ${{ github.event_name == 'push' }}
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     branch: gh-pages
+      #     folder: ./build/
+      #     clean-exclude: pr-preview/
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          source-dir: ./build/
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
-
-      - name: Deploy production
-        if: ${{ github.event_name == 'push' }}
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: ./build/
-          clean-exclude: pr-preview/
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
